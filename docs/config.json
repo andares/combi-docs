@@ -1,7 +1,6 @@
 {
-    "title": "PHP\\Slion",
-    "tagline": "an extension framework base slim.",
-    "image": "www.jpg",
+    "title": "PHP\\Combi",
+    "tagline": "a php framework",
     
     "html": {
         "auto_landing": false,
@@ -15,7 +14,7 @@
     "breadcrumbs": false,
     "breadcrumb_separator" : " > ",
         
-    "repo": "andares/slion",
+    "repo": "andares/combi",
     
     "ignore": {
     },

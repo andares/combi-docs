@@ -94,7 +94,7 @@ Struct基类位于```Combi\Base\Struct```，提供一个确定的、具有自检
 
 ## 创建自己的Struct
 
-下面的例程定义了一个名为Personal的结构类。相比Collection，Struct的定义要多出有关结构描述的内容。
+下面的例程定义了一个名为Person的结构类。相比Collection，Struct的定义要多出有关结构描述的内容。
 
 ```php
 use Combi\Base\Struct;
@@ -105,7 +105,7 @@ use Combi\Base\Struct;
  * @property string $father
  * @property int $age
  */
-class Personal extends Struct {
+class Person extends Struct {
     protected static $_defaults = [
         'name'      => null,
         'father'    => '',
@@ -120,7 +120,7 @@ class Personal extends Struct {
 
 如上面代码所示，基础的Struct的结构定义通过protected静态属性```$_defaults```来定义，通过一组键值定义每个字段名与其默认值。
 
-Personal类中有```name, father, age```三个字段，其默认值分别为null、空串，以及18。
+Person类中有```name, father, age```三个字段，其默认值分别为null、空串，以及18。
 
 > 对Struct类来说，当尝试访问某个属性时，如果该属性事先未被设置，会返回默认值，如同已经被设置过那样。默认值设null，一般情况下表示你希望**该值必须由外部赋予**方可正确运作，这在之后的confirm功能介绍中也会起到作用。
 
@@ -129,7 +129,7 @@ Personal类中有```name, father, age```三个字段，其默认值分别为null
 ### 获取Struct的结构定义
 
 ```php
-var_dump(Personal::defaults());
+var_dump(Person::defaults());
 ```
 
 以上代码会输出```$_defaults```属性内容。
@@ -151,7 +151,7 @@ use Combi\Base\Struct;
  * @property int $age
  * @property int gender
  */
-class Personal extends Struct {
+class Person extends Struct {
     protected static $_defaults = [
         'name'      => null,
         'father'    => '',
@@ -165,7 +165,7 @@ class Personal extends Struct {
 }
 ```
 
-上面例程中为Personal类添加了gender属性，并移除了father属性。
+上面例程中为Person类添加了gender属性，并移除了father属性。
 
 > 移除一个字段请在```$_deprecated```静态属性中以字段名为key设值为1
 
@@ -174,7 +174,7 @@ class Personal extends Struct {
 废弃字段在Struct对象中对单个操作时，并不会报异常，例如：
 
 ```php
-$me = new Personal();
+$me = new Person();
 $me->set('father', 'unamed);
 echo $me->get('father');
 ```
@@ -184,7 +184,7 @@ echo $me->get('father');
 但批量输出和赋值（稍后会提到的```fill()```方法）时，会跳过弃用字段。比如：
 
 ```php
-$someone = new Personal();
+$someone = new Person();
 $someone
     ->set('name', 'triss)
     ->set('father', 'unamed')
@@ -198,19 +198,19 @@ var_dump($someone->toArray());
 通过```defaults()```方法获取字段列表时，也会跳过deprecated字段。但下面方法可以获取全部字段：
 
 ```php
-var_dump(Personal::defaults(true));
+var_dump(Person::defaults(true));
 ```
 
 该访问支持接收一个```bool $include_deprecated```参数，用于返回全部字段结构。
 
-> 要判断一个字段是否为弃用，可以使用```Personal::isKeyDeprecated($key)```方法，返回类型为bool型。
+> 要判断一个字段是否为弃用，可以使用```Person::isKeyDeprecated($key)```方法，返回类型为bool型。
 
 ## confirm机制
 
 Struct提供了一套confirm机制，用于维护结构中数据规则。该机制通过显式调用触发。
 
 ```php
-$someone = new Personal();
+$someone = new Person();
 $someone
     ->set('age', 50)
     ->set('gender', 2)
@@ -240,7 +240,7 @@ use Combi\Base\Struct;
  * @property int $age
  * @property int gender
  */
-class Personal extends Struct {
+class Person extends Struct {
     protected static $_defaults = [
         'name'      => null,
         'father'    => '',
@@ -258,7 +258,7 @@ class Personal extends Struct {
             $default_name &&
                 $val = $default_name;
         if (!$val) {
-            throw new \LogicException('personal name is empty');
+            throw new \LogicException('Person name is empty');
         }
         return $val;
     }
@@ -275,7 +275,7 @@ class Personal extends Struct {
 
 Struct定义了一个空方法```afterConfirm()```，对于一些多字段相关联的判定，可以将相关处理逻辑复写在此方法中。
 
-假设Personal类有一个不合理的逻辑：所有大于40岁的只能是男性（gender=1），那么可以这么写：
+假设Person类有一个不合理的逻辑：所有大于40岁的只能是男性（gender=1），那么可以这么写：
 
 ```php
 use Combi\Base\Struct;
@@ -286,7 +286,7 @@ use Combi\Base\Struct;
  * @property int $age
  * @property int gender
  */
-class Personal extends Struct {
+class Person extends Struct {
     protected static $_defaults = [
         'name'      => null,
         'father'    => '',
@@ -304,7 +304,7 @@ class Personal extends Struct {
             $default_name &&
                 $val = $default_name;
         if (!$val) {
-            throw new \LogicException('personal name is empty');
+            throw new \LogicException('Person name is empty');
         }
         return $val;
     }
