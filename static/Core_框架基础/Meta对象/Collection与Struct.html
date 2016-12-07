@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>       <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>          <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>          <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->  <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+    <title>Collection与Struct - PHP\Slion</title>
+    <meta name="description" content="an extension framework base slim." />
+    <meta name="author" content="I, Me & Myself">
+    <meta charset="UTF-8">
+    <link rel="icon" href="../../themes/daux/img/favicon-blue.png" type="image/x-icon">
+    <!-- Mobile -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Font -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700&subset=latin,cyrillic-ext,cyrillic' rel='stylesheet' type='text/css'>
+    <!-- CSS -->
+    <link href='../../themes/daux/css/theme-blue.min.css' rel='stylesheet' type='text/css'>
+            <!-- Tipue Search -->
+        <link href="../../tipuesearch/tipuesearch.css" rel="stylesheet">
+    
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body class="">
+    
+<header class="Navbar hidden-print">
+    <a class="Navbar__brand" href="../../index.html">PHP\Slion</a>
+
+    <div class="Search">
+        <svg class="Search__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 451 451"><path d="M447.05 428l-109.6-109.6c29.4-33.8 47.2-77.9 47.2-126.1C384.65 86.2 298.35 0 192.35 0 86.25 0 .05 86.3.05 192.3s86.3 192.3 192.3 192.3c48.2 0 92.3-17.8 126.1-47.2L428.05 447c2.6 2.6 6.1 4 9.5 4s6.9-1.3 9.5-4c5.2-5.2 5.2-13.8 0-19zM26.95 192.3c0-91.2 74.2-165.3 165.3-165.3 91.2 0 165.3 74.2 165.3 165.3s-74.1 165.4-165.3 165.4c-91.1 0-165.3-74.2-165.3-165.4z"/></svg>
+        <input type="search" id="tipue_search_input" class="Search__field" placeholder="Search..." autocomplete="on" results=25 autosave=text_search>
+    </div>
+</header>
+<div class="Columns content">
+    <aside class="Columns__left Collapsible">
+        <div class="Collapsible__container">
+            <button type="button" class="Button Collapsible__trigger">
+                <span class="Collapsible__trigger--bar"></span>
+                <span class="Collapsible__trigger--bar"></span>
+                <span class="Collapsible__trigger--bar"></span>
+            </button>
+        </div>
+
+        <div class="Collapsible__content">
+            <!-- Navigation -->
+            <ul class='Nav'><li class='Nav__item '><a href="../../介绍.html">介绍</a></li><li class='Nav__item Nav__item--open has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Core 框架基础</a><ul class='Nav'><li class='Nav__item Nav__item--open has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Meta对象</a><ul class='Nav'><li class='Nav__item Nav__item--active'><a href="../../Core_框架基础/Meta对象/Collection与Struct.html">Collection与Struct</a></li><li class='Nav__item '><a href="../../Core_框架基础/Meta对象/Meta之道.html">Meta之道</a></li><li class='Nav__item '><a href="../../Core_框架基础/Meta对象/Meta组件.html">Meta组件</a></li></ul></li></ul></li></ul>
+
+            <div class="Links">
+                
+                                    <div class="CodeToggler">
+                        <hr/>
+                                                    <a class="CodeToggler__button CodeToggler__button--main" href="#">Show Code Blocks Inline</a><br>
+                                            </div>
+                
+                            </div>
+        </div>
+    </aside>
+    <div class="Columns__right ">
+        <div class="Columns__right__content">
+            <div class="doc_content">
+                <article class="Page">
+
+    <div class="Page__header">
+        <h1><a href="../../Core_框架基础/Meta对象/Collection与Struct.html">Core 框架基础</a> <svg class="Page__header--separator" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 477.175 477.175"><path d="M360.73 229.075l-225.1-225.1c-5.3-5.3-13.8-5.3-19.1 0s-5.3 13.8 0 19.1l215.5 215.5-215.5 215.5c-5.3 5.3-5.3 13.8 0 19.1 2.6 2.6 6.1 4 9.5 4 3.4 0 6.9-1.3 9.5-4l225.1-225.1c5.3-5.2 5.3-13.8.1-19z"/></svg> <a href="../../Core_框架基础/Meta对象/Collection与Struct.html">Meta对象</a> <svg class="Page__header--separator" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 477.175 477.175"><path d="M360.73 229.075l-225.1-225.1c-5.3-5.3-13.8-5.3-19.1 0s-5.3 13.8 0 19.1l215.5 215.5-215.5 215.5c-5.3 5.3-5.3 13.8 0 19.1 2.6 2.6 6.1 4 9.5 4 3.4 0 6.9-1.3 9.5-4l225.1-225.1c5.3-5.2 5.3-13.8.1-19z"/></svg> <a href="../../Core_框架基础/Meta对象/Collection与Struct.html">Collection与Struct</a></h1>
+                    </div>
+
+
+    <div class="s-content">
+        <ul class="TableOfContents">
+<li>
+<p><a href="#page_Collection">Collection基类</a></p>
+<ul class="TableOfContents">
+<li>
+<p><a href="#page_Collection">创建自己的Collection类</a></p>
+</li>
+<li>
+<p><a href="#page_">方法范例</a></p>
+<ul class="TableOfContents">
+<li>
+<p><a href="#page_">基础操作</a></p>
+</li>
+<li>
+<p><a href="#page_">替换已存在键</a></p>
+</li>
+<li>
+<p><a href="#page_">遍历数据</a></p>
+</li>
+<li>
+<p><a href="#page_">追加数据</a></p>
+</li>
+<li>
+<p><a href="#page_">转换为数组</a></p>
+</li>
+<li>
+<p><a href="#page_">聚合迭代器</a></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><a href="#page_Struct">Struct基类</a></p>
+<ul class="TableOfContents">
+<li>
+<p><a href="#page_Struct">创建自己的Struct</a></p>
+</li>
+<li>
+<p><a href="#page_Struct">Struct结构定义</a></p>
+<ul class="TableOfContents">
+<li>
+<p><a href="#page_Struct">获取Struct的结构定义</a></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><a href="#page_">结构迁移</a></p>
+<ul class="TableOfContents">
+<li>
+<p><a href="#page_deprecated">deprecated字段的行为</a></p>
+</li>
+</ul>
+</li>
+<li>
+<p><a href="#page_confirm">confirm机制</a></p>
+<ul class="TableOfContents">
+<li>
+<p><a href="#page_confirm">confirm勾子</a></p>
+</li>
+<li>
+<p><a href="#page_confirm">confirm整体勾子</a></p>
+</li>
+</ul>
+</li>
+<li>
+<p><a href="#page_Collection">与Collection类似的方法</a></p>
+</li>
+</ul>
+<h1 id="page_Collection">Collection基类</h1>
+<p>Collection基类位于<code>Combi\Base\Collection</code>，兼容slim框架的Collection接口。</p>
+<p>Collection提供了一个不确定结构的可伸缩数据集合。可以将其作为一个列表（类似数组）使用，也可以使用字串键值用作key/value结构存储。</p>
+<p>Combi中的很多容器类对象都继承自Collection基类，例如<code>Combi\Core\Container</code></p>
+<h2 id="page_Collection">创建自己的Collection类</h2>
+<pre><code class="language-php">use Combi\Base\Collection;
+
+class MyCollection extends Collection {
+    // ... your code
+}
+</code></pre>
+<p>Collection基类没有任何抽象方法需要实现，也不需要预先定义结构。</p>
+<h2 id="page_">方法范例</h2>
+<h3 id="page_">基础操作</h3>
+<pre><code class="language-php">$collection = new MyCollection();
+
+$collection-&gt;set('name', 'triss');
+
+echo $collection-&gt;get('name'); // echo 'triss'
+
+var_dump($collection-&gt;has('name')); // echo true
+
+echo $collection-&gt;count(); // echo 1
+
+$collection-&gt;remove('name'); // name is be removed
+
+$collection-&gt;clear(); // collection data is empty array now
+</code></pre>
+<h3 id="page_">替换已存在键</h3>
+<pre><code class="language-php">$items = [
+    'name'  =&gt; 'kerafy',
+    'age'   =&gt; 2,
+];
+
+// 只有name被替换，age不会被写入
+$collection-&gt;replace($items);
+</code></pre>
+<h3 id="page_">遍历数据</h3>
+<pre><code class="language-php">foreach ($collection-&gt;all() as $key =&gt; $value) {
+    echo &quot;$key = $value\n&quot;;
+}
+</code></pre>
+<blockquote>
+<p>注意，all()方法将返回一个迭代器而非数组。</p>
+</blockquote>
+<h3 id="page_">追加数据</h3>
+<p>提供了append()方法往collection中添加数据，就像使用数组那样。下面代码示例了往集合中添加了一个模型对象。</p>
+<pre><code class="language-php">$collection-&gt;append($model);
+</code></pre>
+<h3 id="page_">转换为数组</h3>
+<p>toArray()方法可将一个collection转换为数组。如果collection中包含的某些对象同样属于<code>Combi\Interfaces\Arrayable</code>的实现，将会一并转换为数组。</p>
+<pre><code class="language-php">var_dump($collection-&gt;toArray());
+</code></pre>
+<h3 id="page_">聚合迭代器</h3>
+<p>collection类默认实现了聚合迭代器，所以你也可以直接foreach遍历对象。</p>
+<pre><code class="language-php">foreach ($collection as $key =&gt; $value) {
+    echo &quot;$key = $value\n&quot;;
+}
+</code></pre>
+<p>此方法等同于调用了all()方法，和toArray()不同。</p>
+<h1 id="page_Struct">Struct基类</h1>
+<p>Struct基类位于<code>Combi\Base\Struct</code>，提供一个确定的、具有自检特性的key/value数据结构。</p>
+<h2 id="page_Struct">创建自己的Struct</h2>
+<p>下面的例程定义了一个名为Personal的结构类。相比Collection，Struct的定义要多出有关结构描述的内容。</p>
+<pre><code class="language-php">use Combi\Base\Struct;
+
+/**
+ *
+ * @property string $name
+ * @property string $father
+ * @property int $age
+ */
+class Personal extends Struct {
+    protected static $_defaults = [
+        'name'      =&gt; null,
+        'father'    =&gt; '',
+        'age'       =&gt; 18,
+    ];
+
+    // ... your code
+}
+</code></pre>
+<h2 id="page_Struct">Struct结构定义</h2>
+<p>如上面代码所示，基础的Struct的结构定义通过protected静态属性<code>$_defaults</code>来定义，通过一组键值定义每个字段名与其默认值。</p>
+<p>Personal类中有<code>name, father, age</code>三个字段，其默认值分别为null、空串，以及18。</p>
+<blockquote>
+<p>对Struct类来说，当尝试访问某个属性时，如果该属性事先未被设置，会返回默认值，如同已经被设置过那样。默认值设null，一般情况下表示你希望<strong>该值必须由外部赋予</strong>方可正确运作，这在之后的confirm功能介绍中也会起到作用。</p>
+</blockquote>
+<p>作为推荐，由于Struct属性使用重载实现，因此在类注释中标注每个属性会让类的使用更加方便。</p>
+<h3 id="page_Struct">获取Struct的结构定义</h3>
+<pre><code class="language-php">var_dump(Personal::defaults());
+</code></pre>
+<p>以上代码会输出<code>$_defaults</code>属性内容。</p>
+<h2 id="page_">结构迁移</h2>
+<p>基础Struct的结构迁移基于deprecated配置，设置规则如下：</p>
+<ul>
+<li>新增字段（属性）时，在<code>$_defaults</code>的数组末尾添加。
+<ul>
+<li>不要重排<code>$_defaults</code>的定义顺序。</li>
+</ul>
+</li>
+<li>移除字段时，保留<code>$_defaults</code>中的字段定义，在<code>$_deprecated</code>中添加该字段。</li>
+</ul>
+<pre><code class="language-php">use Combi\Base\Struct;
+
+/**
+ *
+ * @property string $name
+ * @property int $age
+ * @property int gender
+ */
+class Personal extends Struct {
+    protected static $_defaults = [
+        'name'      =&gt; null,
+        'father'    =&gt; '',
+        'age'       =&gt; 18,
+        'gender'    =&gt; 0,
+    ];
+
+    protected static $_deprecated = [
+        'father'    =&gt; 1,
+    ];
+}
+</code></pre>
+<p>上面例程中为Personal类添加了gender属性，并移除了father属性。</p>
+<blockquote>
+<p>移除一个字段请在<code>$_deprecated</code>静态属性中以字段名为key设值为1</p>
+</blockquote>
+<h3 id="page_deprecated">deprecated字段的行为</h3>
+<p>废弃字段在Struct对象中对单个操作时，并不会报异常，例如：</p>
+<pre><code class="language-php">$me = new Personal();
+$me-&gt;set('father', 'unamed);
+echo $me-&gt;get('father');
+</code></pre>
+<p>即使father字段已经被弃用，以上例程并不会报错。</p>
+<p>但批量输出和赋值（稍后会提到的<code>fill()</code>方法）时，会跳过弃用字段。比如：</p>
+<pre><code class="language-php">$someone = new Personal();
+$someone
+    -&gt;set('name', 'triss)
+    -&gt;set('father', 'unamed')
+    -&gt;set('age', 50)
+    -&gt;set('gender', 2);
+var_dump($someone-&gt;toArray());
+</code></pre>
+<p>上面例程不会输出father字段。</p>
+<p>通过<code>defaults()</code>方法获取字段列表时，也会跳过deprecated字段。但下面方法可以获取全部字段：</p>
+<pre><code class="language-php">var_dump(Personal::defaults(true));
+</code></pre>
+<p>该访问支持接收一个<code>bool $include_deprecated</code>参数，用于返回全部字段结构。</p>
+<blockquote>
+<p>要判断一个字段是否为弃用，可以使用<code>Personal::isKeyDeprecated($key)</code>方法，返回类型为bool型。</p>
+</blockquote>
+<h2 id="page_confirm">confirm机制</h2>
+<p>Struct提供了一套confirm机制，用于维护结构中数据规则。该机制通过显式调用触发。</p>
+<pre><code class="language-php">$someone = new Personal();
+$someone
+    -&gt;set('age', 50)
+    -&gt;set('gender', 2)
+    -&gt;confirm(); // will throw an exception
+</code></pre>
+<p>上面的代码会抛出一个违例“field [name] can not be empty”，因为并未给默认值为null的name字段赋值。</p>
+<p>confirm的作用是当对Struct中的数据进行了一系列变更后，将要对其进行下一步处理时（比如模型持久化，比如发送消息，或是确认数据输出），对结构中数据完整性做一次校验。</p>
+<p>在默认情况下，仅会对默认值设置为null的字段检测是否有赋不为null的值。</p>
+<blockquote>
+<p>同defaults()一样，如需对deprecated字段生效，请调<code>confirm(true)</code></p>
+</blockquote>
+<blockquote>
+<p>同toArray()一样，如果Struct中某些字段的值同样为一个Struct对象，这些对象的confirm()方法也会一并被调用。</p>
+</blockquote>
+<h3 id="page_confirm">confirm勾子</h3>
+<p>可以自定义一些字段的校验规则，如下所示：</p>
+<pre><code class="language-php">use Combi\Base\Struct;
+
+/**
+ *
+ * @property string $name
+ * @property int $age
+ * @property int gender
+ */
+class Personal extends Struct {
+    protected static $_defaults = [
+        'name'      =&gt; null,
+        'father'    =&gt; '',
+        'age'       =&gt; 18,
+        'gender'    =&gt; 0,
+    ];
+
+    protected static $_deprecated = [
+        'father'    =&gt; 1,
+    ];
+
+    protected function _confirm_name($val) {
+        global $default_name;
+        !$val &amp;&amp;
+            $default_name &amp;&amp;
+                $val = $default_name;
+        if (!$val) {
+            throw new \LogicException('personal name is empty');
+        }
+        return $val;
+    }
+}
+</code></pre>
+<p>按上例范所示，当confirm()时name的昵称为null或是空串时，就会尝试从全局变量$default_name中获取值。</p>
+<blockquote>
+<p>使用自定义confirm勾子后，原有的null判定逻辑就不再有效，字段的可用性完全自行维护。</p>
+</blockquote>
+<blockquote>
+<p>confirm()勾子的机制可同时作为校验和过滤器使用。</p>
+</blockquote>
+<h3 id="page_confirm">confirm整体勾子</h3>
+<p>Struct定义了一个空方法<code>afterConfirm()</code>，对于一些多字段相关联的判定，可以将相关处理逻辑复写在此方法中。</p>
+<p>假设Personal类有一个不合理的逻辑：所有大于40岁的只能是男性（gender=1），那么可以这么写：</p>
+<pre><code class="language-php">use Combi\Base\Struct;
+
+/**
+ *
+ * @property string $name
+ * @property int $age
+ * @property int gender
+ */
+class Personal extends Struct {
+    protected static $_defaults = [
+        'name'      =&gt; null,
+        'father'    =&gt; '',
+        'age'       =&gt; 18,
+        'gender'    =&gt; 0,
+    ];
+
+    protected static $_deprecated = [
+        'father'    =&gt; 1,
+    ];
+
+    protected function _confirm_name($val) {
+        global $default_name;
+        !$val &amp;&amp;
+            $default_name &amp;&amp;
+                $val = $default_name;
+        if (!$val) {
+            throw new \LogicException('personal name is empty');
+        }
+        return $val;
+    }
+
+    protected function afterConfirm() {
+        if ($this-&gt;get('age') &gt; 40 &amp; $this-&gt;get('gender') != 1) {
+            throw new \LogicException('gender must be 1 when age &gt; 40');
+        }
+    }
+}
+</code></pre>
+<h2 id="page_Collection">与Collection类似的方法</h2>
+<ul>
+<li>set()</li>
+<li>get()</li>
+<li>has()</li>
+<li>remove()</li>
+<li>clear()</li>
+<li>all()</li>
+</ul>
+<p>以上方法以及迭代器用法，与Collection基本相同。</p>
+<blockquote>
+<p>其中<code>all()</code>方法与<code>defaults()</code>一样，可以接收一个<code>bool $include_deprecated</code>参数，为true时将忽略deprecated设置返回全部字段数据。默认为false</p>
+</blockquote>
+<blockquote>
+<p>Struct基类不支持<code>append()</code>方法。</p>
+</blockquote>
+    </div>
+
+        <nav>
+        <ul class="Pager">
+            <li class=Pager--prev><a href="../../介绍.html">Previous</a></li>            <li class=Pager--next><a href="../../Core_框架基础/Meta对象/Meta之道.html">Next</a></li>        </ul>
+    </nav>
+    </article>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+    <!-- jQuery -->
+    <script src="../../themes/daux/js/jquery-1.11.3.min.js"></script>
+
+    <!-- hightlight.js -->
+    <script src="../../themes/daux/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <!-- JS -->
+    
+    <script src="../../themes/daux/js/daux.js"></script>
+
+            <!-- Tipue Search -->
+        <script type="text/javascript" src="../../tipuesearch/tipuesearch.js"></script>
+
+        <script>
+            window.onunload = function(){}; // force $(document).ready to be called on back/forward navigation in firefox
+            $(function() {
+                tipuesearch({
+                    'base_url': '../../'
+                });
+            });
+        </script>
+    
+</body>
+</html>
