@@ -4,11 +4,11 @@
 <!--[if IE 8]>          <html class="no-js ie8 oldie" lang="en"> <![endif]-->
 <!--[if gt IE 8]><!-->  <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
-    <title>Collection与Struct - PHP\Combi</title>
+    <title>Meta概念 - PHP\Combi</title>
     <meta name="description" content="a php framework" />
     <meta name="author" content="I, Me & Myself">
     <meta charset="UTF-8">
-    <link rel="icon" href="../../themes/daux/img/favicon-blue.png" type="image/x-icon">
+    <link rel="icon" href="../themes/daux/img/favicon-blue.png" type="image/x-icon">
     <!-- Mobile -->
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,9 +16,9 @@
     <!-- Font -->
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700&subset=latin,cyrillic-ext,cyrillic' rel='stylesheet' type='text/css'>
     <!-- CSS -->
-    <link href='../../themes/daux/css/theme-blue.min.css' rel='stylesheet' type='text/css'>
+    <link href='../themes/daux/css/theme-blue.min.css' rel='stylesheet' type='text/css'>
             <!-- Tipue Search -->
-        <link href="../../tipuesearch/tipuesearch.css" rel="stylesheet">
+        <link href="../tipuesearch/tipuesearch.css" rel="stylesheet">
     
     <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -27,7 +27,7 @@
 <body class="">
     
 <header class="Navbar hidden-print">
-    <a class="Navbar__brand" href="../../index.html">PHP\Combi</a>
+    <a class="Navbar__brand" href="../index.html">PHP\Combi</a>
 
     <div class="Search">
         <svg class="Search__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 451 451"><path d="M447.05 428l-109.6-109.6c29.4-33.8 47.2-77.9 47.2-126.1C384.65 86.2 298.35 0 192.35 0 86.25 0 .05 86.3.05 192.3s86.3 192.3 192.3 192.3c48.2 0 92.3-17.8 126.1-47.2L428.05 447c2.6 2.6 6.1 4 9.5 4s6.9-1.3 9.5-4c5.2-5.2 5.2-13.8 0-19zM26.95 192.3c0-91.2 74.2-165.3 165.3-165.3 91.2 0 165.3 74.2 165.3 165.3s-74.1 165.4-165.3 165.4c-91.1 0-165.3-74.2-165.3-165.4z"/></svg>
@@ -46,7 +46,7 @@
 
         <div class="Collapsible__content">
             <!-- Navigation -->
-            <ul class='Nav'><li class='Nav__item '><a href="../../介绍.html">介绍</a></li><li class='Nav__item Nav__item--open has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Core 框架基础</a><ul class='Nav'><li class='Nav__item Nav__item--open has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Meta对象</a><ul class='Nav'><li class='Nav__item Nav__item--active'><a href="../../Core_框架基础/Meta对象/Collection与Struct.html">Collection与Struct</a></li><li class='Nav__item '><a href="../../Core_框架基础/Meta对象/Meta之道.html">Meta之道</a></li><li class='Nav__item '><a href="../../Core_框架基础/Meta对象/Meta组件.html">Meta组件</a></li></ul></li></ul></li></ul>
+            <ul class='Nav'><li class='Nav__item '><a href="../简介.html">简介</a></li><li class='Nav__item  has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Get Started</a><ul class='Nav'><li class='Nav__item '><a href="../Get_Started/创建我的App.html">创建我的App</a></li><li class='Nav__item '><a href="../Get_Started/深入服务开发.html">深入服务开发</a></li><li class='Nav__item '><a href="../Get_Started/创建Package.html">创建Package</a></li></ul></li><li class='Nav__item Nav__item--open has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>框架基础</a><ul class='Nav'><li class='Nav__item '><a href="../框架基础/运行时架构.html">运行时架构</a></li><li class='Nav__item Nav__item--active'><a href="../框架基础/Meta概念.html">Meta概念</a></li><li class='Nav__item '><a href="../框架基础/配置系统.html">配置系统</a></li><li class='Nav__item '><a href="../框架基础/勾子与小工具.html">勾子与小工具</a></li><li class='Nav__item '><a href="../框架基础/调试与日志.html">调试与日志</a></li><li class='Nav__item '><a href="../框架基础/依赖注入与服务.html">依赖注入与服务</a></li><li class='Nav__item '><a href="../框架基础/路由入口与中间件.html">路由入口与中间件</a></li><li class='Nav__item '><a href="../框架基础/调用方法速查.html">调用方法速查</a></li></ul></li></ul>
 
             <div class="Links">
                 
@@ -64,12 +64,15 @@
                 <article class="Page">
 
     <div class="Page__header">
-        <h1><a href="../../Core_框架基础/Meta对象/Collection与Struct.html">Core 框架基础</a> <svg class="Page__header--separator" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 477.175 477.175"><path d="M360.73 229.075l-225.1-225.1c-5.3-5.3-13.8-5.3-19.1 0s-5.3 13.8 0 19.1l215.5 215.5-215.5 215.5c-5.3 5.3-5.3 13.8 0 19.1 2.6 2.6 6.1 4 9.5 4 3.4 0 6.9-1.3 9.5-4l225.1-225.1c5.3-5.2 5.3-13.8.1-19z"/></svg> <a href="../../Core_框架基础/Meta对象/Collection与Struct.html">Meta对象</a> <svg class="Page__header--separator" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 477.175 477.175"><path d="M360.73 229.075l-225.1-225.1c-5.3-5.3-13.8-5.3-19.1 0s-5.3 13.8 0 19.1l215.5 215.5-215.5 215.5c-5.3 5.3-5.3 13.8 0 19.1 2.6 2.6 6.1 4 9.5 4 3.4 0 6.9-1.3 9.5-4l225.1-225.1c5.3-5.2 5.3-13.8.1-19z"/></svg> <a href="../../Core_框架基础/Meta对象/Collection与Struct.html">Collection与Struct</a></h1>
+        <h1><a href="../框架基础/运行时架构.html">框架基础</a> <svg class="Page__header--separator" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 477.175 477.175"><path d="M360.73 229.075l-225.1-225.1c-5.3-5.3-13.8-5.3-19.1 0s-5.3 13.8 0 19.1l215.5 215.5-215.5 215.5c-5.3 5.3-5.3 13.8 0 19.1 2.6 2.6 6.1 4 9.5 4 3.4 0 6.9-1.3 9.5-4l225.1-225.1c5.3-5.2 5.3-13.8.1-19z"/></svg> <a href="../框架基础/Meta概念.html">Meta概念</a></h1>
                     </div>
 
 
     <div class="s-content">
         <ul class="TableOfContents">
+<li>
+<p><a href="#page_Meta">Meta概念简述</a></p>
+</li>
 <li>
 <p><a href="#page_Collection">Collection基类</a></p>
 <ul class="TableOfContents">
@@ -139,13 +142,20 @@
 <li>
 <p><a href="#page_Collection">与Collection类似的方法</a></p>
 </li>
+<li>
+<p><a href="#page_Meta">Meta之道</a></p>
+</li>
+<li>
+<p><a href="#page_Meta">Meta组件</a></p>
+</li>
 </ul>
+<h1 id="page_Meta">Meta概念简述</h1>
 <h1 id="page_Collection">Collection基类</h1>
 <p>Collection基类位于<code>Combi\Base\Collection</code>，兼容slim框架的Collection接口。</p>
 <p>Collection提供了一个不确定结构的可伸缩数据集合。可以将其作为一个列表（类似数组）使用，也可以使用字串键值用作key/value结构存储。</p>
 <p>Combi中的很多容器类对象都继承自Collection基类，例如<code>Combi\Core\Container</code></p>
 <h2 id="page_Collection">创建自己的Collection类</h2>
-<pre><code class="language-php">use Combi\Base\Collection;
+<pre><code class="language-{php">use Combi\Base\Collection;
 
 class MyCollection extends Collection {
     // ... your code
@@ -154,7 +164,7 @@ class MyCollection extends Collection {
 <p>Collection基类没有任何抽象方法需要实现，也不需要预先定义结构。</p>
 <h2 id="page_">方法范例</h2>
 <h3 id="page_">基础操作</h3>
-<pre><code class="language-php">$collection = new MyCollection();
+<pre><code class="language-{php">$collection = new MyCollection();
 
 $collection-&gt;set('name', 'triss');
 
@@ -169,7 +179,7 @@ $collection-&gt;remove('name'); // name is be removed
 $collection-&gt;clear(); // collection data is empty array now
 </code></pre>
 <h3 id="page_">替换已存在键</h3>
-<pre><code class="language-php">$items = [
+<pre><code class="language-{php">$items = [
     'name'  =&gt; 'kerafy',
     'age'   =&gt; 2,
 ];
@@ -178,7 +188,7 @@ $collection-&gt;clear(); // collection data is empty array now
 $collection-&gt;replace($items);
 </code></pre>
 <h3 id="page_">遍历数据</h3>
-<pre><code class="language-php">foreach ($collection-&gt;all() as $key =&gt; $value) {
+<pre><code class="language-{php">foreach ($collection-&gt;all() as $key =&gt; $value) {
     echo &quot;$key = $value\n&quot;;
 }
 </code></pre>
@@ -187,15 +197,15 @@ $collection-&gt;replace($items);
 </blockquote>
 <h3 id="page_">追加数据</h3>
 <p>提供了append()方法往collection中添加数据，就像使用数组那样。下面代码示例了往集合中添加了一个模型对象。</p>
-<pre><code class="language-php">$collection-&gt;append($model);
+<pre><code class="language-{php">$collection-&gt;append($model);
 </code></pre>
 <h3 id="page_">转换为数组</h3>
 <p>toArray()方法可将一个collection转换为数组。如果collection中包含的某些对象同样属于<code>Combi\Interfaces\Arrayable</code>的实现，将会一并转换为数组。</p>
-<pre><code class="language-php">var_dump($collection-&gt;toArray());
+<pre><code class="language-{php">var_dump($collection-&gt;toArray());
 </code></pre>
 <h3 id="page_">聚合迭代器</h3>
 <p>collection类默认实现了聚合迭代器，所以你也可以直接foreach遍历对象。</p>
-<pre><code class="language-php">foreach ($collection as $key =&gt; $value) {
+<pre><code class="language-{php">foreach ($collection as $key =&gt; $value) {
     echo &quot;$key = $value\n&quot;;
 }
 </code></pre>
@@ -204,7 +214,7 @@ $collection-&gt;replace($items);
 <p>Struct基类位于<code>Combi\Base\Struct</code>，提供一个确定的、具有自检特性的key/value数据结构。</p>
 <h2 id="page_Struct">创建自己的Struct</h2>
 <p>下面的例程定义了一个名为Person的结构类。相比Collection，Struct的定义要多出有关结构描述的内容。</p>
-<pre><code class="language-php">use Combi\Base\Struct;
+<pre><code class="language-{php">use Combi\Base\Struct;
 
 /**
  *
@@ -230,7 +240,7 @@ class Person extends Struct {
 </blockquote>
 <p>作为推荐，由于Struct属性使用重载实现，因此在类注释中标注每个属性会让类的使用更加方便。</p>
 <h3 id="page_Struct">获取Struct的结构定义</h3>
-<pre><code class="language-php">var_dump(Person::defaults());
+<pre><code class="language-{php">var_dump(Person::defaults());
 </code></pre>
 <p>以上代码会输出<code>$_defaults</code>属性内容。</p>
 <h2 id="page_">结构迁移</h2>
@@ -243,7 +253,7 @@ class Person extends Struct {
 </li>
 <li>移除字段时，保留<code>$_defaults</code>中的字段定义，在<code>$_deprecated</code>中添加该字段。</li>
 </ul>
-<pre><code class="language-php">use Combi\Base\Struct;
+<pre><code class="language-{php">use Combi\Base\Struct;
 
 /**
  *
@@ -270,13 +280,13 @@ class Person extends Struct {
 </blockquote>
 <h3 id="page_deprecated">deprecated字段的行为</h3>
 <p>废弃字段在Struct对象中对单个操作时，并不会报异常，例如：</p>
-<pre><code class="language-php">$me = new Person();
+<pre><code class="language-{php">$me = new Person();
 $me-&gt;set('father', 'unamed);
 echo $me-&gt;get('father');
 </code></pre>
 <p>即使father字段已经被弃用，以上例程并不会报错。</p>
 <p>但批量输出和赋值（稍后会提到的<code>fill()</code>方法）时，会跳过弃用字段。比如：</p>
-<pre><code class="language-php">$someone = new Person();
+<pre><code class="language-{php">$someone = new Person();
 $someone
     -&gt;set('name', 'triss)
     -&gt;set('father', 'unamed')
@@ -286,7 +296,7 @@ var_dump($someone-&gt;toArray());
 </code></pre>
 <p>上面例程不会输出father字段。</p>
 <p>通过<code>defaults()</code>方法获取字段列表时，也会跳过deprecated字段。但下面方法可以获取全部字段：</p>
-<pre><code class="language-php">var_dump(Person::defaults(true));
+<pre><code class="language-{php">var_dump(Person::defaults(true));
 </code></pre>
 <p>该访问支持接收一个<code>bool $include_deprecated</code>参数，用于返回全部字段结构。</p>
 <blockquote>
@@ -294,7 +304,7 @@ var_dump($someone-&gt;toArray());
 </blockquote>
 <h2 id="page_confirm">confirm机制</h2>
 <p>Struct提供了一套confirm机制，用于维护结构中数据规则。该机制通过显式调用触发。</p>
-<pre><code class="language-php">$someone = new Person();
+<pre><code class="language-{php">$someone = new Person();
 $someone
     -&gt;set('age', 50)
     -&gt;set('gender', 2)
@@ -311,7 +321,7 @@ $someone
 </blockquote>
 <h3 id="page_confirm">confirm勾子</h3>
 <p>可以自定义一些字段的校验规则，如下所示：</p>
-<pre><code class="language-php">use Combi\Base\Struct;
+<pre><code class="language-{php">use Combi\Base\Struct;
 
 /**
  *
@@ -353,7 +363,7 @@ class Person extends Struct {
 <h3 id="page_confirm">confirm整体勾子</h3>
 <p>Struct定义了一个空方法<code>afterConfirm()</code>，对于一些多字段相关联的判定，可以将相关处理逻辑复写在此方法中。</p>
 <p>假设Person类有一个不合理的逻辑：所有大于40岁的只能是男性（gender=1），那么可以这么写：</p>
-<pre><code class="language-php">use Combi\Base\Struct;
+<pre><code class="language-{php">use Combi\Base\Struct;
 
 /**
  *
@@ -407,11 +417,13 @@ class Person extends Struct {
 <blockquote>
 <p>Struct基类不支持<code>append()</code>方法。</p>
 </blockquote>
+<h1 id="page_Meta">Meta之道</h1>
+<h1 id="page_Meta">Meta组件</h1>
     </div>
 
         <nav>
         <ul class="Pager">
-            <li class=Pager--prev><a href="../../介绍.html">Previous</a></li>            <li class=Pager--next><a href="../../Core_框架基础/Meta对象/Meta之道.html">Next</a></li>        </ul>
+            <li class=Pager--prev><a href="../框架基础/运行时架构.html">Previous</a></li>            <li class=Pager--next><a href="../框架基础/配置系统.html">Next</a></li>        </ul>
     </nav>
     </article>
 
@@ -422,24 +434,24 @@ class Person extends Struct {
 
     
     <!-- jQuery -->
-    <script src="../../themes/daux/js/jquery-1.11.3.min.js"></script>
+    <script src="../themes/daux/js/jquery-1.11.3.min.js"></script>
 
     <!-- hightlight.js -->
-    <script src="../../themes/daux/js/highlight.pack.js"></script>
+    <script src="../themes/daux/js/highlight.pack.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
 
     <!-- JS -->
     
-    <script src="../../themes/daux/js/daux.js"></script>
+    <script src="../themes/daux/js/daux.js"></script>
 
             <!-- Tipue Search -->
-        <script type="text/javascript" src="../../tipuesearch/tipuesearch.js"></script>
+        <script type="text/javascript" src="../tipuesearch/tipuesearch.js"></script>
 
         <script>
             window.onunload = function(){}; // force $(document).ready to be called on back/forward navigation in firefox
             $(function() {
                 tipuesearch({
-                    'base_url': '../../'
+                    'base_url': '../'
                 });
             });
         </script>

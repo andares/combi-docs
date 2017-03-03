@@ -1,3 +1,5 @@
+# Meta概念简述
+
 # Collection基类
 
 Collection基类位于```Combi\Base\Collection```，兼容slim框架的Collection接口。
@@ -8,7 +10,7 @@ Combi中的很多容器类对象都继承自Collection基类，例如```Combi\Co
 
 ## 创建自己的Collection类
 
-```php
+```{php id:"iwtkik8t"}
 use Combi\Base\Collection;
 
 class MyCollection extends Collection {
@@ -22,7 +24,7 @@ Collection基类没有任何抽象方法需要实现，也不需要预先定义�
 
 ### 基础操作
 
-```php
+```{php id:"iwtkik92"}
 $collection = new MyCollection();
 
 $collection->set('name', 'triss');
@@ -40,7 +42,7 @@ $collection->clear(); // collection data is empty array now
 
 ### 替换已存在键
 
-```php
+```{php id:"iwtkik9g"}
 $items = [
     'name'  => 'kerafy',
     'age'   => 2,
@@ -52,7 +54,7 @@ $collection->replace($items);
 
 ### 遍历数据
 
-```php
+```{php id:"iwtkik9t"}
 foreach ($collection->all() as $key => $value) {
     echo "$key = $value\n";
 }
@@ -64,7 +66,7 @@ foreach ($collection->all() as $key => $value) {
 
 提供了append()方法往collection中添加数据，就像使用数组那样。下面代码示例了往集合中添加了一个模型对象。
 
-```php
+```{php id:"iwtkika3"}
 $collection->append($model);
 ```
 
@@ -72,7 +74,7 @@ $collection->append($model);
 
 toArray()方法可将一个collection转换为数组。如果collection中包含的某些对象同样属于```Combi\Interfaces\Arrayable```的实现，将会一并转换为数组。
 
-```php
+```{php id:"iwtkika7"}
 var_dump($collection->toArray());
 ```
 
@@ -80,7 +82,7 @@ var_dump($collection->toArray());
 
 collection类默认实现了聚合迭代器，所以你也可以直接foreach遍历对象。
 
-```php
+```{php id:"iwtkikaj"}
 foreach ($collection as $key => $value) {
     echo "$key = $value\n";
 }
@@ -96,7 +98,7 @@ Struct基类位于```Combi\Base\Struct```，提供一个确定的、具有自检
 
 下面的例程定义了一个名为Person的结构类。相比Collection，Struct的定义要多出有关结构描述的内容。
 
-```php
+```{php id:"iwtkikaq"}
 use Combi\Base\Struct;
 
 /**
@@ -128,7 +130,7 @@ Person类中有```name, father, age```三个字段，其默认值分别为null�
 
 ### 获取Struct的结构定义
 
-```php
+```{php id:"iwtkikau"}
 var_dump(Person::defaults());
 ```
 
@@ -142,7 +144,7 @@ var_dump(Person::defaults());
   * 不要重排```$_defaults```的定义顺序。
 * 移除字段时，保留```$_defaults```中的字段定义，在```$_deprecated```中添加该字段。
 
-```php
+```{php id:"iwtkikb3"}
 use Combi\Base\Struct;
 
 /**
@@ -173,7 +175,7 @@ class Person extends Struct {
 
 废弃字段在Struct对象中对单个操作时，并不会报异常，例如：
 
-```php
+```{php id:"iwtkikbi"}
 $me = new Person();
 $me->set('father', 'unamed);
 echo $me->get('father');
@@ -183,7 +185,7 @@ echo $me->get('father');
 
 但批量输出和赋值（稍后会提到的```fill()```方法）时，会跳过弃用字段。比如：
 
-```php
+```{php id:"iwtkikbs"}
 $someone = new Person();
 $someone
     ->set('name', 'triss)
@@ -197,7 +199,7 @@ var_dump($someone->toArray());
 
 通过```defaults()```方法获取字段列表时，也会跳过deprecated字段。但下面方法可以获取全部字段：
 
-```php
+```{php id:"iwtkikc6"}
 var_dump(Person::defaults(true));
 ```
 
@@ -209,7 +211,7 @@ var_dump(Person::defaults(true));
 
 Struct提供了一套confirm机制，用于维护结构中数据规则。该机制通过显式调用触发。
 
-```php
+```{php id:"iwtkikcg"}
 $someone = new Person();
 $someone
     ->set('age', 50)
@@ -231,7 +233,7 @@ confirm的作用是当对Struct中的数据进行了一系列变更后，将要�
 
 可以自定义一些字段的校验规则，如下所示：
 
-```php
+```{php id:"iwtkikcx"}
 use Combi\Base\Struct;
 
 /**
@@ -277,7 +279,7 @@ Struct定义了一个空方法```afterConfirm()```，对于一些多字段相关
 
 假设Person类有一个不合理的逻辑：所有大于40岁的只能是男性（gender=1），那么可以这么写：
 
-```php
+```{php id:"iwtkikd7"}
 use Combi\Base\Struct;
 
 /**
@@ -331,3 +333,7 @@ class Person extends Struct {
 > 其中```all()```方法与```defaults()```一样，可以接收一个```bool $include_deprecated```参数，为true时将忽略deprecated设置返回全部字段数据。默认为false
 
 > Struct基类不支持```append()```方法。
+
+# Meta之道
+
+# Meta组件
