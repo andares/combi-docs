@@ -1,17 +1,17 @@
-# Meta概念简述
+# Meta简述
+
+Meta在Combi中的概念是一种结构化的数据载体。在业务逻辑的流转中，推荐使用Meta对象封装数据，尤其是结构型（Struct）的数据。在核心包提供的功能中，如请求与响应参数、数据模型等，都会用到Meta对象。
+
+Meta提供的基础类有```Collection```和```Struct```两种，前者是一个列表，后者为一个结构体。同时为其提供了一系列Interfaces和Traits，可便捷统一地实现例如序列化，结构定义和检查等功能。
 
 # Collection基类
 
-Collection基类位于```Combi\Base\Collection```，兼容slim框架的Collection接口。
-
-Collection提供了一个不确定结构的可伸缩数据集合。可以将其作为一个列表（类似数组）使用，也可以使用字串键值用作key/value结构存储。
-
-Combi中的很多容器类对象都继承自Collection基类，例如```Combi\Core\Container```
+Collection基类位于```Combi\Meta\Collection```，提供了一个列表式的可伸缩数据集合，也可以使用字串键值用作key/value结构存储。```Combi\Meta\Container```是collection的别名，Combi中的很多容器类对象都继承自Collection基类。
 
 ## 创建自己的Collection类
 
-```{php id:"iwtkik8t"}
-use Combi\Base\Collection;
+```php
+use Combi\Meta\Collection;
 
 class MyCollection extends Collection {
     // ... your code
@@ -24,16 +24,16 @@ Collection基类没有任何抽象方法需要实现，也不需要预先定义�
 
 ### 基础操作
 
-```{php id:"iwtkik92"}
+```php
 $collection = new MyCollection();
 
 $collection->set('name', 'triss');
 
-echo $collection->get('name'); // echo 'triss'
+echo $collection->get('name'); // print 'triss'
 
-var_dump($collection->has('name')); // echo true
+var_dump($collection->has('name')); // print true
 
-echo $collection->count(); // echo 1
+echo $collection->count(); // print 1
 
 $collection->remove('name'); // name is be removed
 
