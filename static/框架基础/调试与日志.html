@@ -72,27 +72,467 @@
         <ul class="TableOfContents">
 <li>
 <p><a href="#page_Abort%E4%B8%AD%E6%96%AD%E6%9C%BA%E5%88%B6">Abort中断机制</a></p>
+<ul class="TableOfContents">
+<li>
+<p><a href="#page_%E4%BD%BF%E7%94%A8abort%E8%AF%AD%E5%8F%A5">使用abort语句</a></p>
+</li>
+<li>
+<p><a href="#page_%E5%8E%9F%E7%94%9F%E8%BF%9D%E4%BE%8B">原生违例</a></p>
+</li>
+<li>
+<p><a href="#page_%E8%AE%BE%E7%BD%AE%E4%B8%AD%E6%96%AD%E5%B1%9E%E6%80%A7">设置中断属性</a></p>
+<ul class="TableOfContents">
+<li>
+<p><a href="#page_%E4%B8%AD%E6%96%AD%E6%B6%88%E6%81%AF%E6%A8%A1%E7%89%88%E4%B8%8E%E8%BD%AC%E6%8D%A2%E8%BE%93%E5%87%BA">中断消息模版与转换输出</a></p>
+</li>
+</ul>
+</li>
+</ul>
 </li>
 <li>
 <p><a href="#page_Tris%E8%B0%83%E8%AF%95%E6%A8%A1%E5%9D%97">Tris调试模块</a></p>
 <ul class="TableOfContents">
 <li>
 <p><a href="#page_%E8%B0%83%E8%AF%95%E8%BE%93%E5%87%BA">调试输出</a></p>
+<ul class="TableOfContents">
+<li>
+<p><a href="#page_%E8%B0%83%E8%AF%95%E5%B9%B6%E4%B8%AD%E6%AD%A2%E7%A8%8B%E5%BA%8F">调试并中止程序</a></p>
+</li>
+<li>
+<p><a href="#page_%E6%B5%8B%E8%AF%95%E4%B8%AD%E8%BE%93%E5%87%BA">测试中输出</a></p>
+</li>
+<li>
+<p><a href="#page_%E8%8E%B7%E5%8F%96%E4%BB%A3%E7%A0%81%E6%AE%B5%E6%89%A7%E8%A1%8C%E6%97%B6%E9%97%B4">获取代码段执行时间</a></p>
+</li>
+<li>
+<p><a href="#page_%E4%BF%AE%E6%94%B9dumper%E9%85%8D%E7%BD%AE">修改dumper配置</a></p>
+</li>
+</ul>
 </li>
 <li>
 <p><a href="#page_%E5%BC%82%E5%B8%B8%E6%8D%95%E8%8E%B7">异常捕获</a></p>
+<ul class="TableOfContents">
+<li>
+<p><a href="#page_%E9%94%99%E8%AF%AF%E8%BD%AC%E8%BF%9D%E4%BE%8B">错误转违例</a></p>
 </li>
 <li>
-<p><a href="#page_%E6%97%A5%E5%BF%97%E5%8A%9F%E8%83%BD">日志功能</a></p>
+<p><a href="#page_%E8%BF%9D%E4%BE%8B%E6%8D%95%E8%8E%B7">违例捕获</a></p>
+</li>
+<li>
+<p><a href="#page_Catcher%E7%9A%84%E9%85%8D%E7%BD%AE">Catcher的配置</a></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><a href="#page_%E6%97%A5%E5%BF%97%E7%B3%BB%E7%BB%9F">日志系统</a></p>
+<ul class="TableOfContents">
+<li>
+<p><a href="#page_%E6%97%A5%E5%BF%97%E8%B7%AF%E5%BE%84">日志路径</a></p>
+<ul class="TableOfContents">
+<li>
+<p><a href="#page_%E6%97%A5%E5%BF%97%E6%96%87%E4%BB%B6%E5%88%86%E7%89%87">日志文件分片</a></p>
+</li>
+<li>
+<p><a href="#page_%E6%97%A5%E5%BF%97%E5%90%8E%E7%BC%80%E5%90%8D">日志后缀名</a></p>
+</li>
+</ul>
+</li>
+<li>
+<p><a href="#page_%E6%97%A5%E5%BF%97%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F">日志文件格式</a></p>
+<ul class="TableOfContents">
+<li>
+<p><a href="#page_%E6%97%A5%E6%9C%9F%E6%A0%BC%E5%BC%8F">日期格式</a></p>
+</li>
+<li>
+<p><a href="#page_%E5%AF%B9%E8%BF%9D%E4%BE%8B%E7%AD%89%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%94%AF%E6%8C%81">对违例等对象的支持</a></p>
+</li>
+</ul>
+</li>
+<li>
+<p><a href="#page_%E6%97%A5%E5%BF%97%E5%AF%B9%E8%B1%A1">日志对象</a></p>
+</li>
+<li>
+<p><a href="#page_%E6%97%A5%E5%BF%97%E6%89%A9%E5%B1%95%E5%8F%82%E6%95%B0">日志扩展参数</a></p>
+<ul class="TableOfContents">
+<li>
+<p><a href="#page_%E6%B6%88%E6%81%AF%E6%A8%A1%E7%89%88">消息模版</a></p>
+</li>
+</ul>
+</li>
+<li>
+<p><a href="#page_%E8%BF%9D%E4%BE%8B%E6%A0%B7%E6%9C%AC">违例样本</a></p>
+<ul class="TableOfContents">
+<li>
+<p><a href="#page_%E5%85%B3%E9%97%AD%E8%BF%9D%E4%BE%8B%E6%A0%B7%E6%9C%AC">关闭违例样本</a></p>
+</li>
+<li>
+<p><a href="#page_%E9%80%89%E6%8B%A9%E8%AE%B0%E5%BD%95%E8%BF%9D%E4%BE%8B%E6%A0%B7%E6%9C%AC%E7%9A%84%E6%97%A5%E5%BF%97%E7%BA%A7%E5%88%AB">选择记录违例样本的日志级别</a></p>
+</li>
+</ul>
+</li>
+<li>
+<p><a href="#page_%E6%89%A9%E5%B1%95%E6%97%A5%E5%BF%97%E5%8A%9F%E8%83%BD">扩展日志功能</a></p>
+<ul class="TableOfContents">
+<li>
+<p><a href="#page_%E5%85%B3%E9%97%AD%E9%BB%98%E8%AE%A4%E6%96%87%E4%BB%B6%E6%97%A5%E5%BF%97">关闭默认文件日志</a></p>
+</li>
+</ul>
 </li>
 </ul>
 </li>
 </ul>
 <h1 id="page_Abort%E4%B8%AD%E6%96%AD%E6%9C%BA%E5%88%B6">Abort中断机制</h1>
+<p>Abort中断机制是combi默认推荐的一种错误处理方式，特征如下：</p>
+<ul>
+<li>基于php违例机制设计，通过设置<code>全局捕获</code>与<code>try..catch</code>语法处理抛出的中断消息</li>
+<li>推荐通过错误号来识别异常，这样可以更少地定义Exception类，或直接使用SPL提供的几个违例</li>
+<li>中断的相关信息和建议处理方式等均可以在中断发生的地方给出，更自然更通用</li>
+</ul>
+<h2 id="page_%E4%BD%BF%E7%94%A8abort%E8%AF%AD%E5%8F%A5">使用abort语句</h2>
+<p>推荐在combi项目的文件开头加上以下use语句以便于简单地使用中断，脚手架创建的文件会自带该声明。</p>
+<pre><code class="language-php">use Combi\Core\Abort as abort;
+</code></pre>
+<p>当错误发生时，抛出中断：</p>
+<pre><code class="language-php">use Combi\Core\Abort as abort;
+
+if (!$user) {
+    throw abort::unexpectedValue('User is not found', 21001);
+}
+</code></pre>
+<p>如上所示，当用户对象为null时，抛出错误号为21001的中断，其包含的违例对象为<code>\UnexpectedValueException</code>。这种通过重载创建Abort中断对象的方式，会默认创建根空间下末尾为Exception的违例对象。这主要是针对SPL提供的几个默认违例。</p>
+<p>顶部的use语句同样为框架推荐，脚手架会自动生成。</p>
+<p>如果需要使用其他违例类作为违例实体，可以使用下面的语句。</p>
+<pre><code class="language-php">if (!$user) {
+    throw abort::with(new MyException('User is not found', 21001));
+}
+</code></pre>
+<h2 id="page_%E5%8E%9F%E7%94%9F%E8%BF%9D%E4%BE%8B">原生违例</h2>
+<p>违例对象本身主要包括了文字消息与错误号，外加上一个违例及类名等信息。Abort对象本身也是一个违例，在调用abort语句时，会创建一个Abort对象，并将违例实体作为previous参数传给Abort。</p>
+<p>当需要获取原生违例时，可以调用getPrevious()方法获取：</p>
+<pre><code class="language-php">$raw = $abort-&gt;getPrevious();
+</code></pre>
+<p>需要判断原生违例类时，abort对象提供了一个简单一点的方法：</p>
+<pre><code class="language-php">if ($abort-&gt;class() == UnexpectedValueException::class) {
+    // do something..
+}
+</code></pre>
+<h2 id="page_%E8%AE%BE%E7%BD%AE%E4%B8%AD%E6%96%AD%E5%B1%9E%E6%80%A7">设置中断属性</h2>
+<p>abort机制的目的之一，就是使得不需要通过定义很多的违例类，即可在错误发生的地点把相关的信息传递出来。因此abort对象包含了一个collection对象，假设要违例发生点需要传递用户id，那么可以这么用：</p>
+<pre><code class="language-php">$user = User::find($user_id);
+if (!$user) {
+    throw abort::unexpectedValue('User is not found', 21001)
+        -&gt;set('user_id', $user_id);
+}
+</code></pre>
+<p>这样在捕获点，则可以根据传出来的user_id进行处理：</p>
+<pre><code class="language-php">try {
+    //...
+} catch (abort $abort) {
+    if ($abort-&gt;getCode() == 21001) {
+        // 忽略用户id=100的错误
+        if ($abort-&gt;get('user_id') != 100) {
+            throw $abort;
+        }
+    }
+}
+</code></pre>
+<p>中断属性除了提供错误发生时必要的信息，也可以提供其他指导参数，假设我们在业务接口中约定了一个参数show，来控制是否显示此错误。这样在错误发生点，我们可以提供一个推荐的处理方式，比如这里打算隐藏该错误。</p>
+<pre><code class="language-php">$user = User::find($user_id);
+if (!$user) {
+    throw abort::unexpectedValue('User is not found', 21001)
+        -&gt;set('user_id', $user_id)
+        -&gt;set('show', 0);
+}
+</code></pre>
+<p>像这样，你可以通过多次调用set方法来给中断设置多个要传递的参数。</p>
+<h3 id="page_%E4%B8%AD%E6%96%AD%E6%B6%88%E6%81%AF%E6%A8%A1%E7%89%88%E4%B8%8E%E8%BD%AC%E6%8D%A2%E8%BE%93%E5%87%BA">中断消息模版与转换输出</h3>
+<p>中断消息支持combi框架内建的一个简单模版规则。你可以这样描述错误：</p>
+<pre><code class="language-php">$abort = abort::unexpectedValue('User {user_id} is not found', 21001)
+    -&gt;set('user_id', 100)
+    -&gt;set('show', 0);
+throw $abort;
+</code></pre>
+<p>这时直接输出<code>$abort</code>你会看到：</p>
+<pre><code class="language-php">echo $abort;
+// print like this: {&quot;message&quot;:&quot;User 100 is not found&quot;,&quot;code&quot;:21001,&quot;file&quot;:&quot;/src/classes/Core/Abort.php&quot;,&quot;line&quot;:32,&quot;extra&quot;:{&quot;user_id&quot;:100,&quot;show&quot;:0}}
+</code></pre>
+<p>abort支持几种转换输出的方式：</p>
+<pre><code class="language-php">var_dump($abort-&gt;toArray());    // 转换为数组
+var_dump($abort);               // 调试输出，结果与上面一致
+echo json_encode($abort);       // 转换为json格式
+echo $abort;                    // 转换为字串输出，结果与上面一致
+</code></pre>
+<p>当使用这几种转换方式输出，或是使用combi内建的日志和调试模块的话，message中的<code>{user_id}</code>会被中断消息中的同名键值替换。</p>
+<blockquote>
+<p>模版规则也支持<code>:user_id</code>这种形式，前后有空格要求。</p>
+</blockquote>
+<blockquote>
+<p>注意，Exception中的getMessage()被标记为final，所以调用<code>$abort-&gt;getMessage()</code>不会触发模版机制。</p>
+</blockquote>
 <h1 id="page_Tris%E8%B0%83%E8%AF%95%E6%A8%A1%E5%9D%97">Tris调试模块</h1>
+<p>combi内置的简单调试模块叫tris，其包括了调试输出、全局异常捕获及日志相关功能。</p>
+<p>框架推荐在文件开头使用use语句引用tris的门面类，以简化调用方式。使用脚手架创建文件会自动生成该声明。</p>
+<pre><code class="language-php">use Combi\Facades\Tris as tris;
+</code></pre>
+<p>tris有独立的配置文件<code>tris.neon</code>，用于分别管理dumper、catcher及日志等模块。如果需要修改tris的配置，可以在主包中创建配置<code>src/config/core/tris.neon</code>，以覆盖core包中的默认配置。</p>
 <h2 id="page_%E8%B0%83%E8%AF%95%E8%BE%93%E5%87%BA">调试输出</h2>
+<p>使用<code>du()</code>方法对要检查的变量调试输出。</p>
+<pre><code class="language-php">tris::du($user);
+</code></pre>
+<p>如果变量是一个对象，du()方法会检查是否包括<code>toArray()</code>或是<code>__toString()</code>方法，有的话会调用。对于不同的输出环境，如页面或是命令行，du()指令也会尽量适配。</p>
+<p>如果要打印的条目较多，希望加以区分，可以在输出时给定一个标题：</p>
+<pre><code class="language-php">tris::du($user, 'user');
+</code></pre>
+<h3 id="page_%E8%B0%83%E8%AF%95%E5%B9%B6%E4%B8%AD%E6%AD%A2%E7%A8%8B%E5%BA%8F">调试并中止程序</h3>
+<p>类似laravel，tris也提供了dd()方法：</p>
+<pre><code class="language-php">tris::dd($user);
+</code></pre>
+<h3 id="page_%E6%B5%8B%E8%AF%95%E4%B8%AD%E8%BE%93%E5%87%BA">测试中输出</h3>
+<p>提供了dt()方法，供单元测试中使用。</p>
+<pre><code class="language-php">tris::debugTurnOn();
+
+tris::dt($user);
+
+tris::debugTurnOff();
+</code></pre>
+<p>dt()方法会把变量打印到debug级别的日志中，而不是输出到页面或命令行。关于日志，见下文说明。</p>
+<p>和du()/dd()不同，dt()方法只在<code>debugTurnOn()/debugTurnOff()</code>之间工作。</p>
+<h3 id="page_%E8%8E%B7%E5%8F%96%E4%BB%A3%E7%A0%81%E6%AE%B5%E6%89%A7%E8%A1%8C%E6%97%B6%E9%97%B4">获取代码段执行时间</h3>
+<p>debugTurnOff()会返回一组数组，其中包括了代码段的执行时间（单位毫秒），你可以这样获取：</p>
+<pre><code class="language-php">tris::debugTurnOn();
+
+// your code..
+
+// 获取代码段耗时到$timecost变量
+['timecost' =&gt; $timecost] = tris::debugTurnOff();
+</code></pre>
+<h3 id="page_%E4%BF%AE%E6%94%B9dumper%E9%85%8D%E7%BD%AE">修改dumper配置</h3>
+<p>tris的dumper配置在tris.neon中如下所示：</p>
+<pre><code class="language-neon">dumper:
+    provider:   Combi\Tris\Dumper
+</code></pre>
+<p>可以修改dumper类为自定义类。例如创建dumper对象：</p>
+<pre><code class="language-php">namespace MyZone;
+
+use Combi\Tris\Interfaces;
+use Combi\Common\Traits;
+
+class MyDumper implements Interfaces\Dumper
+{
+    use Traits\Singleton;
+
+    public function dump($var, $title = null): self {
+        if ($title) echo &quot;\n# $title\n&quot;;
+        var_export($var);
+        return $this;
+    }
+}
+</code></pre>
+<p>在<code>src\config\core\tris.neon</code>中修改相关配置：</p>
+<pre><code class="language-neon">dumper:
+    provider:   MyZone\MyDumper
+</code></pre>
 <h2 id="page_%E5%BC%82%E5%B8%B8%E6%8D%95%E8%8E%B7">异常捕获</h2>
-<h2 id="page_%E6%97%A5%E5%BF%97%E5%8A%9F%E8%83%BD">日志功能</h2>
+<p>combi框架默认的Catcher配置提供了以下全局处理机制：</p>
+<ul>
+<li>全局错误捕获，并将错误转换为ErrorException抛出</li>
+<li>全局违例捕获，对未捕获的违例进行默认处理</li>
+</ul>
+<h3 id="page_%E9%94%99%E8%AF%AF%E8%BD%AC%E8%BF%9D%E4%BE%8B">错误转违例</h3>
+<p>对于大多数的php错误，Catcher会将其转换为ErrorException对象抛出，并将错误发生所在作用域的环境变量带入context中。</p>
+<h3 id="page_%E8%BF%9D%E4%BE%8B%E6%8D%95%E8%8E%B7">违例捕获</h3>
+<p>对于未被try..catch语法捕获的错误，会记录日志。如果是非生产环境，会根据catcher配置，决定是否打印输出违例信息。</p>
+<h3 id="page_Catcher%E7%9A%84%E9%85%8D%E7%BD%AE">Catcher的配置</h3>
+<p>可以在<code>src\config\core\tris.neon</code>中修改相关配置：</p>
+<pre><code class="language-neon">catcher:
+    provider:   Combi\Tris\Catcher
+    print_exc:      true
+</code></pre>
+<p>设置print_exc为false，则在全局捕获违例时不会输出违例信息。</p>
+<h1 id="page_%E6%97%A5%E5%BF%97%E7%B3%BB%E7%BB%9F">日志系统</h1>
+<p>tris内置了一个结构简单的可扩展日志系统。在框架中简单记录一条日志方式如下：</p>
+<pre><code class="language-php">tris::log('has error');
+</code></pre>
+<p>如果需要额外记录一些信息，可以通过扩展参数传递：</p>
+<pre><code class="language-php">tris::log('has error', [
+    'user_id'   =&gt; $user_id,
+]);
+</code></pre>
+<p>该方法的完整定义为：</p>
+<pre><code class="language-php">public static function log($message,
+        array $context = [],
+        string $level = 'debug',
+        string $channel = 'default'): void
+</code></pre>
+<h2 id="page_%E6%97%A5%E5%BF%97%E8%B7%AF%E5%BE%84">日志路径</h2>
+<p>日志文件的路径由以下组成：</p>
+<p><code>&lt;logroot&gt;/&lt;channel&gt;/&lt;slice&gt;&lt;suffix&gt;</code></p>
+<ul>
+<li>logroot 指在基础配置文件中logs项所标注的目录，默认在主包的<code>logs</code>目录下</li>
+<li>channel 日志所使用的频道，默认为default</li>
+<li>slice   基于日期的文件分片名，由tris日志配置控制</li>
+<li>suffix  日志名后缀，由tris日志配置控制</li>
+</ul>
+<h3 id="page_%E6%97%A5%E5%BF%97%E6%96%87%E4%BB%B6%E5%88%86%E7%89%87">日志文件分片</h3>
+<p>日志文件分片的配置在tris.neon中可进行配置：</p>
+<pre><code class="language-neon">logger:
+    default:
+        slice_format:       Y.W
+</code></pre>
+<p>默认是以<code>年.周</code>格式进行分片。</p>
+<h3 id="page_%E6%97%A5%E5%BF%97%E5%90%8E%E7%BC%80%E5%90%8D">日志后缀名</h3>
+<p>日志后缀配置在tris.neon中进行配置：</p>
+<pre><code class="language-neon">logger:
+    default:
+        file_suffix:        &quot;.{level}.log&quot;
+</code></pre>
+<p>在分片模版中支持变量<code>{level}</code>，当模版中包含此变量时，则不同级别的日志会记录到不同的文件中。</p>
+<p>这样，在默认配置下，2017年第40周的info级别日志会写入<code>logs/default/2017.40.info.log</code>文件中。</p>
+<h2 id="page_%E6%97%A5%E5%BF%97%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F">日志文件格式</h2>
+<p>日志文件为json格式，以行划分，每个json结构中包括以下字段：</p>
+<ul>
+<li>datetime    日期</li>
+<li>channel     频道</li>
+<li>message     消息体</li>
+<li>context     扩展参数</li>
+<li>primary     关联id</li>
+<li>debugvars   上下文变量，仅ErrorException违例才有</li>
+<li>level       日志级别</li>
+</ul>
+<h3 id="page_%E6%97%A5%E6%9C%9F%E6%A0%BC%E5%BC%8F">日期格式</h3>
+<p>每条日志的日期格式在tris.neon中配置：</p>
+<pre><code class="language-neon">logger:
+    default:
+        datetime_format:    c
+</code></pre>
+<h3 id="page_%E5%AF%B9%E8%BF%9D%E4%BE%8B%E7%AD%89%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%94%AF%E6%8C%81">对违例等对象的支持</h3>
+<p>message消息体允许传对象/违例等变量，日志系统会根据对象类型进行处理：</p>
+<ul>
+<li>为违例/错误对象时： 获取违例中的message，将违例放入context扩展参数的<code>exception</code>字段</li>
+<li>拥有<code>toArray()</code>方法： 调用<code>toArray()</code>方法转为数组替换到message</li>
+<li>拥有<code>__toString()</code>方法： 调用<code>__toString()</code>转为字串替换到message</li>
+<li>剩下的： 将对象转为数组替换到message</li>
+</ul>
+<p>原传入的message对象均会存在context扩展参数的raw字段中。</p>
+<h2 id="page_%E6%97%A5%E5%BF%97%E5%AF%B9%E8%B1%A1">日志对象</h2>
+<p>除了直接记录数据，tris还提供了<code>ml()</code>方法以返回一个Log对象，这样可以更方便地设置日志数据。</p>
+<pre><code class="language-php">$log = tris::ml($exception);
+</code></pre>
+<p>如果要把日志以error级别写入，就调用error()方法，类似的方法以重载实现：</p>
+<pre><code class="language-php">$log-&gt;error();
+</code></pre>
+<p>如果message是违例对象，也可以使用其他未在Psr中定义的错误级别，这时会有一套规则来选择用哪个错误级别：</p>
+<pre><code class="language-php">$log = tris::ml('has info');
+$log-&gt;mylevel(); // log with debug level
+</code></pre>
+<p>可以像log()方法一样设置扩展参数：</p>
+<pre><code class="language-php">$log = tris::ml($exception, [
+    'user_id'   =&gt; $user_id,
+]);
+</code></pre>
+<p>因为log类本身是个Collection类并支持重载，所以也可以这样设置扩展参数：</p>
+<pre><code class="language-php">$log-&gt;user_id = $user_id;
+
+$log-&gt;set('nickname', $nickname)
+    -&gt;set('exception', $exception);
+</code></pre>
+<blockquote>
+<p>如果日志对象记录的message是一个abort对象，那么abort对象中的扩展参数会与log类中的合并。</p>
+</blockquote>
+<h2 id="page_%E6%97%A5%E5%BF%97%E6%89%A9%E5%B1%95%E5%8F%82%E6%95%B0">日志扩展参数</h2>
+<p>contaxt在日志系统中被作为扩展参数使用，在abort机制中也都有用到。当日志系统接收一个abort对象时，会将两者的扩展参数合并。</p>
+<p>扩展参数有一些特殊字段名，用于传递指定信息，例如当需要记录日志时，同时还想传递一个违例：</p>
+<pre><code class="language-php">tris::log('has error', [
+    'exception' =&gt; abort::logic('user name could not be empty', 200102),
+], \Psr\Log\ERROR);
+
+// 或者
+$log = tris::ml('has error');
+$log-&gt;exception = abort::logic('user name could not be empty', 200102);
+$log-&gt;error();
+</code></pre>
+<p><code>exception</code>就是一个特殊扩展参数，支持传一个违例对象。该约定使得日志系统可以对此信息做出针对性处理。</p>
+<p>约定的特殊扩展参数字段包括：</p>
+<ul>
+<li>exception   违例或Error对象，该键会在捕获后被移除。</li>
+<li>error       Error对象，该键会在捕获后被移除。</li>
+<li>datetime    自定义的\DateTimeInterface对象。</li>
+<li>primary     primary作为关键id，目前用于记录违例样本的文件名命名中</li>
+<li>sampless    设置true将不记录违例样本</li>
+</ul>
+<h3 id="page_%E6%B6%88%E6%81%AF%E6%A8%A1%E7%89%88">消息模版</h3>
+<p>日志中的message如果最终被记录为字串类型（传入字符串或违例），同样会应用内置的简单模版规则。所以你可以这样进行日志：</p>
+<pre><code class="language-php">$log = tris::ml('user {user_id} not found');
+$log-&gt;user_id = 100;
+$log-&gt;info();
+</code></pre>
+<p>这样记录到的message消息将会是<code>user 100 not found</code></p>
+<h2 id="page_%E8%BF%9D%E4%BE%8B%E6%A0%B7%E6%9C%AC">违例样本</h2>
+<p>当尝试用日志系统记录一个违例时（包括Abort），日志系统会尝试生成一个违例样本。违例样本以文本的形式记录了违例的详细追踪信息，并且以一定规则命名文件，不会重复。</p>
+<p>样本所在目录按日志日期切片规则生成：</p>
+<p><code>&lt;logroot&gt;/&lt;channel&gt;/&lt;slice&gt;/</code></p>
+<p>其文件名规则为：</p>
+<p><code>&lt;code&gt;-&lt;class&gt;-&lt;file&gt;-&lt;line&gt;[-&lt;primary&gt;].smp</code></p>
+<p>文件名以<code>-</code>为连接符连接各个项，包括以下项目：</p>
+<ul>
+<li>code    错误码</li>
+<li>class   违例/错误类名</li>
+<li>file    错误发生所在文件名</li>
+<li>line    错误发生所在行</li>
+<li>primary 如果有设primary值，则会把primary id带上</li>
+</ul>
+<h3 id="page_%E5%85%B3%E9%97%AD%E8%BF%9D%E4%BE%8B%E6%A0%B7%E6%9C%AC">关闭违例样本</h3>
+<p>设置tris.neon下面的配置可控制违例样本的启用与关闭。</p>
+<pre><code class="language-neon">sample:
+    enable:         true
+</code></pre>
+<p>也可以在中断发生时，或是日志时设置扩展参数<code>sampless=true</code>，这样可跳过违例样本记录。</p>
+<h3 id="page_%E9%80%89%E6%8B%A9%E8%AE%B0%E5%BD%95%E8%BF%9D%E4%BE%8B%E6%A0%B7%E6%9C%AC%E7%9A%84%E6%97%A5%E5%BF%97%E7%BA%A7%E5%88%AB">选择记录违例样本的日志级别</h3>
+<p>增删tris.neon文件内sample.levels下的key可选择只对哪些错误级别记录违样本。</p>
+<pre><code class="language-neon">sample:
+    levels:
+        emergency:  true
+        alert:      true
+        critical:   true
+        error:      true
+        warning:    true
+</code></pre>
+<h2 id="page_%E6%89%A9%E5%B1%95%E6%97%A5%E5%BF%97%E5%8A%9F%E8%83%BD">扩展日志功能</h2>
+<p>日志系统通过combi框架的勾子机制进行扩展。下面是一个简单的扩展演示：</p>
+<pre><code class="language-php">use Combi\Package as core;
+
+// 日志预处理勾子
+core::hook()-&gt;attach(\Combi\HOOK_LOG_PREPARE,
+    function(array $record, string $to_file_path): array
+{
+    // 给record加上自定义参数
+    $record['custom_info'] = $_REQUEST['info'] ?? null;
+    return $record;
+});
+
+// 扩展自定义日志
+core::hook()-&gt;attach(\Combi\HOOK_LOG, function(array $record) {
+    if ($record['custom_info']) {
+        file_put_contents('/tmp/custom.log',
+            $record['custom_info'].&quot;\n&quot;, \FILE_APPEND);
+    }
+});
+</code></pre>
+<p>上面定义了<code>HOOK_LOG_PREPARE</code>日志预处理和<code>HOOK_LOG</code>日志勾子，当request传一个info字段时，会将此信息写入到<code>/tmp/custom.log</code>中。</p>
+<p>关于勾子（Hook）系统的详细说明见下一章节。</p>
+<h3 id="page_%E5%85%B3%E9%97%AD%E9%BB%98%E8%AE%A4%E6%96%87%E4%BB%B6%E6%97%A5%E5%BF%97">关闭默认文件日志</h3>
+<p>tris的日志系统被设计为可以简单扩展，其自带的文件日志系统也是可以被关闭的，设置tris.neon中logger.default.to_file为false可禁止原生文件日志记录。</p>
+<pre><code class="language-neon">logger:
+    default:
+        to_file:            true
+</code></pre>
+<p>通过设置NullLogger作为provider，也可以在不影响代码的情况下完全关闭tris的日志系统。</p>
+<pre><code class="language-neon">logger:
+    default:
+        provider:           Combi\Tris\NullLogger
+</code></pre>
     </div>
 
         <nav>

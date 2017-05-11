@@ -71,7 +71,18 @@
     <div class="s-content">
         <ul class="TableOfContents">
 <li>
-<p><a href="#page_%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6">配置文件</a></p>
+<p><a href="#page_%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6">基础配置文件</a></p>
+<ul class="TableOfContents">
+<li>
+<p><a href="#page_%E9%85%8D%E7%BD%AE%E9%A1%B9%E8%AF%B4%E6%98%8E">配置项说明</a></p>
+</li>
+<li>
+<p><a href="#page_%E4%B8%8D%E5%90%8C%E7%8E%AF%E5%A2%83%E4%B8%8B%E7%9A%84%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6">不同环境下的基础配置文件</a></p>
+</li>
+</ul>
+</li>
+<li>
+<p><a href="#page_%E9%85%8D%E7%BD%AE%E7%B3%BB%E7%BB%9F">配置系统</a></p>
 <ul class="TableOfContents">
 <li>
 <p><a href="#page_%E9%85%8D%E7%BD%AE%E6%A0%BC%E5%BC%8F">配置格式</a></p>
@@ -87,11 +98,9 @@
 <li>
 <p><a href="#page_%E4%B8%BA%E9%85%8D%E7%BD%AE%E5%AE%9A%E4%B9%89%E5%9C%BA%E6%99%AF">为配置定义场景</a></p>
 </li>
-</ul>
-</li>
 <li>
-<p><a href="#page_"></a></p>
-<ul class="TableOfContents">
+<p><a href="#page_%E8%8E%B7%E5%8F%96%E9%85%8D%E7%BD%AE">获取配置</a></p>
+</li>
 <li>
 <p><a href="#page_%E5%BC%95%E7%94%A8%E5%8C%85%E9%85%8D%E7%BD%AE%E9%87%8D%E8%BD%BD">引用包配置重载</a></p>
 </li>
@@ -101,7 +110,47 @@
 </ul>
 </li>
 </ul>
-<h1 id="page_%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6">配置文件</h1>
+<h1 id="page_%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6">基础配置文件</h1>
+<p>一个combi框架的启动都依赖于一个基础配置文件。</p>
+<h2 id="page_%E9%85%8D%E7%BD%AE%E9%A1%B9%E8%AF%B4%E6%98%8E">配置项说明</h2>
+<p>默认推荐该文件放置到主包的项目根目录下，文件名为<code>config.php</code>。内容格式如下：</p>
+<pre><code class="language-php">&lt;?php
+return [
+    'is_prod'   =&gt; false,
+    'scene'     =&gt; 'default',
+    'locale'    =&gt; 'zh_CN.utf8',
+
+    'path'      =&gt; [
+        'tmp'   =&gt; __DIR__ . '/tmp',
+        'logs'  =&gt; __DIR__ . '/logs',
+        'docs'  =&gt; __DIR__ . '/docs',
+        'tests' =&gt; __DIR__ . '/tests',
+    ],
+];
+</code></pre>
+<p><strong>is_prod项</strong></p>
+<p>该项配置为bool型，表示当前是否为生产环境。在生产环境下，很多框架内的调试机制会被关闭，并更多地依赖缓存。</p>
+<p><strong>scene</strong></p>
+<p>设置所使用配置场景。关于配置场景详细见下文描述。</p>
+<p><strong>locale项</strong></p>
+<p>所使用语言包。combi默认集成语言包功能。</p>
+<p><strong>path项</strong></p>
+<p>配置该包作为主包运行时的各个路径：</p>
+<ul>
+<li>tmp，临时文件目录</li>
+<li>logs，日志目录</li>
+<li>docs，Markdown文档目录</li>
+<li>tests，单元测试目录</li>
+</ul>
+<h2 id="page_%E4%B8%8D%E5%90%8C%E7%8E%AF%E5%A2%83%E4%B8%8B%E7%9A%84%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6">不同环境下的基础配置文件</h2>
+<p>combi框架推荐在config.php文件同目录下，准备多个不同环境的config.php文件，其命名方式可以是：</p>
+<ul>
+<li>config.php      默认配置，一般是开发环境</li>
+<li>config.test.php 测试环境配置</li>
+<li>config.prod.php 生产环境配置</li>
+</ul>
+<p>类似上面那样，以便于在发布系统中进行替换，或是在入口文件中识别环境载入（通过<code>rt::ready()</code>方法）。类似的方案可以参考laravel的.env文件。</p>
+<h1 id="page_%E9%85%8D%E7%BD%AE%E7%B3%BB%E7%BB%9F">配置系统</h1>
 <h2 id="page_%E9%85%8D%E7%BD%AE%E6%A0%BC%E5%BC%8F">配置格式</h2>
 <p>combi使用了Nette框架提供的neon格式，与yaml非常类似。</p>
 <h2 id="page_%E7%9B%AE%E5%BD%95%E4%B8%8E%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84">目录与文件结构</h2>
@@ -142,7 +191,7 @@ prod &lt; user:
     throttle_interval:  60
     prod &lt; throttle_limit:  50
 </code></pre>
-<h1 id="page_"></h1>
+<h2 id="page_%E8%8E%B7%E5%8F%96%E9%85%8D%E7%BD%AE">获取配置</h2>
 <p>假设上面的配置文件处在pid为app的包内，文件名为<code>src/config/base.neon</code>，那么包内的访问方式是：</p>
 <pre><code class="language-php">$limit = inner::config('base')-&gt;user['throttle_limit'];
 </code></pre>
