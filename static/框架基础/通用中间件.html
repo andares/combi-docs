@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>       <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>          <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>          <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->  <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+    <title>通用中间件 - PHP\Combi</title>
+    <meta name="description" content="a php framework" />
+    <meta name="author" content="I, Me & Myself">
+    <meta charset="UTF-8">
+    <link rel="icon" href="../themes/daux/img/favicon-blue.png" type="image/x-icon">
+    <!-- Mobile -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Font -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700&subset=latin,cyrillic-ext,cyrillic' rel='stylesheet' type='text/css'>
+    <!-- CSS -->
+    <link href='../themes/daux/css/theme-blue.min.css' rel='stylesheet' type='text/css'>
+            <!-- Tipue Search -->
+        <link href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+    
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body class=" ">
+    <div class="Columns content">
+    <aside class="Columns__left Collapsible">
+        <button type="button" class="Button Collapsible__trigger">
+            <span class="Collapsible__trigger--bar"></span>
+            <span class="Collapsible__trigger--bar"></span>
+            <span class="Collapsible__trigger--bar"></span>
+        </button>
+
+        <a class="Brand" href="../index.html">PHP\Combi</a>
+
+    <div class="Search">
+        <svg class="Search__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 451 451">
+            <path d="M447.05 428l-109.6-109.6c29.4-33.8 47.2-77.9 47.2-126.1C384.65 86.2 298.35 0 192.35 0 86.25 0 .05 86.3.05 192.3s86.3 192.3 192.3 192.3c48.2 0 92.3-17.8 126.1-47.2L428.05 447c2.6 2.6 6.1 4 9.5 4s6.9-1.3 9.5-4c5.2-5.2 5.2-13.8 0-19zM26.95 192.3c0-91.2 74.2-165.3 165.3-165.3 91.2 0 165.3 74.2 165.3 165.3s-74.1 165.4-165.3 165.4c-91.1 0-165.3-74.2-165.3-165.4z"/>
+        </svg>
+        <input type="search" id="tipue_search_input" class="Search__field" placeholder="Search..." autocomplete="on"
+               results=25 autosave=text_search>
+    </div>
+
+        <div class="Collapsible__content">
+            <!-- Navigation -->
+            <ul class='Nav'><li class='Nav__item '><a href="../Get_Started.html">Get Started</a></li><li class='Nav__item Nav__item--open has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>框架基础</a><ul class='Nav'><li class='Nav__item '><a href="../框架基础/基础结构.html">基础结构</a></li><li class='Nav__item '><a href="../框架基础/配置系统.html">配置系统</a></li><li class='Nav__item '><a href="../框架基础/调试与日志.html">调试与日志</a></li><li class='Nav__item '><a href="../框架基础/勾子与语言包.html">勾子与语言包</a></li><li class='Nav__item Nav__item--active'><a href="../框架基础/通用中间件.html">通用中间件</a></li><li class='Nav__item '><a href="../框架基础/Meta组件.html">Meta组件</a></li><li class='Nav__item '><a href="../框架基础/小工具.html">小工具</a></li></ul></li><li class='Nav__item  has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Web模块</a><ul class='Nav'><li class='Nav__item '><a href="../Web模块/入口.html">入口</a></li><li class='Nav__item '><a href="../Web模块/HTTP消息.html">HTTP消息</a></li><li class='Nav__item '><a href="../Web模块/控制器与路由.html">控制器与路由</a></li><li class='Nav__item '><a href="../Web模块/中间件.html">中间件</a></li><li class='Nav__item '><a href="../Web模块/模版.html">模版</a></li><li class='Nav__item '><a href="../Web模块/协议与错误处理.html">协议与错误处理</a></li><li class='Nav__item '><a href="../Web模块/会话与日志.html">会话与日志</a></li><li class='Nav__item '><a href="../Web模块/测试.html">测试</a></li></ul></li><li class='Nav__item  has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>业务实践</a><ul class='Nav'><li class='Nav__item '><a href="../业务实践/选择合适的Access.html">选择合适的Access</a></li><li class='Nav__item '><a href="../业务实践/系统发布与环境配置.html">系统发布与环境配置</a></li></ul></li></ul>
+
+            <div class="Links">
+                
+                                    <div class="CodeToggler">
+                        <hr/>
+                                                    <a class="CodeToggler__button CodeToggler__button--main" href="#">Show Code Blocks Inline</a><br>
+                                            </div>
+                
+                            </div>
+        </div>
+    </aside>
+    <div class="Columns__right ">
+        <div class="Columns__right__content">
+            <div class="doc_content">
+                <article class="Page">
+
+    <div class="Page__header">
+        <h1><a href="../框架基础/基础结构.html">框架基础</a> <svg class="Page__header--separator" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 477.175 477.175"><path d="M360.73 229.075l-225.1-225.1c-5.3-5.3-13.8-5.3-19.1 0s-5.3 13.8 0 19.1l215.5 215.5-215.5 215.5c-5.3 5.3-5.3 13.8 0 19.1 2.6 2.6 6.1 4 9.5 4 3.4 0 6.9-1.3 9.5-4l225.1-225.1c5.3-5.2 5.3-13.8.1-19z"/></svg> <a href="../框架基础/通用中间件.html">通用中间件</a></h1>
+                    </div>
+
+
+    <div class="s-content">
+        <ul class="TableOfContents">
+<li>
+<p><a href="#page_section_1">中间件的使用</a></p>
+<ul class="TableOfContents">
+<li>
+<p><a href="#page_section_2">创建中间件</a></p>
+</li>
+<li>
+<p><a href="#page_section_3">创建执行节点</a></p>
+</li>
+<li>
+<p><a href="#page_section_4">中间件绑定</a></p>
+</li>
+<li>
+<p><a href="#page_section_5">执行</a></p>
+</li>
+<li>
+<p><a href="#page_section_6">创建非执行节点</a></p>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="page_section_1">中间件的使用</h1>
+<p>Combi提供了具有扩展性的中间件机制，包括了下述特性：</p>
+<ul>
+<li>高效的双向绑定，支持执行节点与中间件的双向绑定调用方法，同时支持节点的静态绑定和实体绑定。</li>
+<li>可直接使用，也可扩展为不同的中间件系统。</li>
+<li>扩展出的不同中间件系统同样可嵌套调用。</li>
+</ul>
+<blockquote>
+<p>静态绑定适用于daemon类守护进程应用，动态绑定适用于如cgi、命令行等单次请求应用。</p>
+</blockquote>
+<p>该中间件机制由以下部分组成：</p>
+<ol>
+<li>Middleware Trait - 用于构造中间件。</li>
+<li>Middleware Aware Trait - 用于构造可绑定中间件的执行节点。</li>
+<li>Middleware Stack - 中间件执行栈。</li>
+</ol>
+<h2 id="page_section_2">创建中间件</h2>
+<p>创建一个中间件只需要引用 Middleware Trait：</p>
+<pre><code class="language-php">use Combi\Core;
+
+class MyMiddleware {
+    use Core\Middleware;
+
+    protected function handle(callable $next, ...$params) {
+        echo &quot;MyMiddlewre is called.&quot;;
+        $result = $next(...$params);
+        return $result;
+    }
+}
+</code></pre>
+<p>上面是一个最简单的中间件。当然事实上中间件只需要一个闭包也可以实现：</p>
+<pre><code class="language-php">$myMiddleware = function(callable $next, ...$params) {
+    echo &quot;MyMiddlewre is called.&quot;;
+    $result = $next(...$params);
+    return $result;
+};
+</code></pre>
+<p>忽略一些细节，上面的闭包中间件和声明类功能上是一样的。但更推荐使用类来实现，优点如下：</p>
+<ol>
+<li>便于实现更复杂的功能。</li>
+<li>便于代码管理。</li>
+<li>便于测试。</li>
+<li>使用 Middleware Trait 支持双向绑定。</li>
+</ol>
+<p>基于 Middleware Trait 也可以扩展自己的中间件系统。例如Combi框架的Web包中的http中间件就是基于Core包中的Middleware实现的：</p>
+<pre><code class="language-php">namespace Combi\Web;
+use Combi\Core;
+abstract class Middleware
+{
+    use Core\Middleware;
+
+    abstract protected function handle(callable $next, Request $request): Response;
+
+    public function __invoke(callable $next, Request $request): Response
+    {
+        return $this-&gt;handle($next, $request);
+    }
+}
+</code></pre>
+<p>上面的代码就是Web中的Middleware基类实现，因为原中间件Trait的参数是不限的，通过声明一个抽象基类，可以限定在某个系统中的参数和返回类型，使代码更为可控。</p>
+<h2 id="page_section_3">创建执行节点</h2>
+<p>实现一个支持中间件的执行节点有以下几个步骤：</p>
+<ol>
+<li>引用 Middleware Aware Trait</li>
+<li>实现<code>setMiddlewareStackKernel()</code>方法。</li>
+<li>在该方法中，需要调用<code>$stack-&gt;kernel()</code>方法，以指明该节点的中间件执行完后的内核调用是什么。</li>
+<li>对于最终带有业务逻辑的节点，必须支持<code>__invoke()</code>方法以支持闭包调用。</li>
+</ol>
+<p>其中，内核调用可以是一个支持```__invoke()``的对象，也可以是一个闭包，或者是下一个节点的中间件stack，如下所示创建了一个支持中间件的控制器。</p>
+<pre><code class="language-php">use Combi\Core;
+
+class MyController {
+    use Core\Middleware\Aware;
+
+    protected function setMiddlewareStackKernel($stack,
+        ...$arguments): void
+    {
+        $stack-&gt;kernel($this);
+    }
+
+    public function __invoke() {
+        echo &quot;controller is running.&quot;;
+    }
+}
+</code></pre>
+<h2 id="page_section_4">中间件绑定</h2>
+<p>中间件的绑定是很灵活的。例如我们要把 MyMiddleware 绑定到继承于 MyController 的 UserController 和 ArticleController 上去：</p>
+<pre><code class="language-php">(new MyMiddleware())-&gt;attach(UserController::class, ArticleController::class);
+</code></pre>
+<p><code>attach()</code>方法可以接收多个参数，一次进行多个Aware类的绑定。如果目标对象已经被创建，传对象也是没有问题的：</p>
+<pre><code class="language-php">$user    = new UserController;
+$article = new ArticleController;
+
+(new MyMiddleware())-&gt;attach($user, $user);
+</code></pre>
+<p>上面这种绑定方式被称为<code>绑定实体节点</code>，相对来说之前的则是<code>绑定静态节点</code>。</p>
+<p>同样，也可以基于中间件Aware类，绑定多个中间件：</p>
+<pre><code class="language-php">$user-&gt;addMiddlewares(new MyMiddlewareA(), new MyMiddlewareB());
+ArticleController::addStaticMiddlewares(new MyMiddlewareA(), new MyMiddlewareB());
+</code></pre>
+<p>与之前相同，如果调用静态方法绑定的话，就是<code>绑定静态节点</code>，否则先创建节点对象再绑定，则是<code>绑定实体节点</code>。</p>
+<p>可以看到上面的代码中，所有中间件被创建了2次。如果该中间件并没有细节参数，或者两者确实完全一致，可以先创建中间件，再调用add相关方法。或者，也可以使用以下方法：</p>
+<pre><code class="language-php">;
+ArticleController::addStaticMiddlewares(
+    ...$user-&gt;addMiddlewares(new MyMiddlewareA(), new MyMiddlewareB())
+);
+</code></pre>
+<p><code>addMiddleware</code>相关方法会返回传入的中间件列表，因此可以通过嵌套调用的方式一次赋给多个节点。</p>
+<blockquote>
+<p>执行节点可以绑定到实体或是静态声明，但中间件必须被创建出来，通过new或是闭包。</p>
+</blockquote>
+<h2 id="page_section_5">执行</h2>
+<p>在最外层节点上，调用callMiddlewareStack()方法获取执行栈并闭包调用。</p>
+<pre><code class="language-php">$user   = new UserController;
+$stack  = $user-&gt;callMiddlewareStack();
+$result = $stack();
+</code></pre>
+<blockquote>
+<p>如果一个节点同时进行了静态绑定和实体绑定，那么静态绑定的中间件是在实体绑定外层执行的的。</p>
+</blockquote>
+<h2 id="page_section_6">创建非执行节点</h2>
+<p>某些情况下，希望实现一些类似节点组的概念。比如调用顺序是节点A-&gt;节点B，而节点A仅仅是一些次级节点的聚合，并不包括具体业务代码。这时对于节点A来说，就不需要实现<code>__invoke()</code>方法。</p>
+<p>例如，我们创建了一个 Group 类，其次级节点是MyController。</p>
+<pre><code class="language-php">use Combi\Core;
+
+class Group {
+    use Core\Middleware\Aware;
+
+    protected function setMiddlewareStackKernel($stack,
+        ...$arguments): void
+    {
+        $next = new MyController();
+        $stack-&gt;kernel($next-&gt;callMiddlewareStack(...$arguments));
+    }
+}
+</code></pre>
+<p>之后的绑定与调用操作与之前相同，这里只示例调用：</p>
+<pre><code class="language-php">$group  = new Group;
+$stack  = $group-&gt;callMiddlewareStack();
+$result = $stack();
+</code></pre>
+    </div>
+
+        <nav>
+        <ul class="Pager">
+            <li class=Pager--prev><a href="../框架基础/勾子与语言包.html">Previous</a></li>            <li class=Pager--next><a href="../框架基础/Meta组件.html">Next</a></li>        </ul>
+    </nav>
+    </article>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+    <!-- jQuery -->
+    <script src="../themes/daux/js/jquery-1.11.3.min.js"></script>
+
+    <!-- hightlight.js -->
+    <script src="../themes/daux/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <!-- JS -->
+    
+    <script src="../themes/daux/js/daux.js"></script>
+
+            <!-- Tipue Search -->
+        <script type="text/javascript" src="../tipuesearch/tipuesearch.js"></script>
+
+        <script>
+            window.onunload = function(){}; // force $(document).ready to be called on back/forward navigation in firefox
+            $(function() {
+                tipuesearch({
+                    'base_url': '../'
+                });
+            });
+        </script>
+    
+</body>
+</html>

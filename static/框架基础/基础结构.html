@@ -24,29 +24,28 @@
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 </head>
-<body class="">
-    
-<header class="Navbar hidden-print">
-    <a class="Navbar__brand" href="../index.html">PHP\Combi</a>
+<body class=" ">
+    <div class="Columns content">
+    <aside class="Columns__left Collapsible">
+        <button type="button" class="Button Collapsible__trigger">
+            <span class="Collapsible__trigger--bar"></span>
+            <span class="Collapsible__trigger--bar"></span>
+            <span class="Collapsible__trigger--bar"></span>
+        </button>
+
+        <a class="Brand" href="../index.html">PHP\Combi</a>
 
     <div class="Search">
-        <svg class="Search__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 451 451"><path d="M447.05 428l-109.6-109.6c29.4-33.8 47.2-77.9 47.2-126.1C384.65 86.2 298.35 0 192.35 0 86.25 0 .05 86.3.05 192.3s86.3 192.3 192.3 192.3c48.2 0 92.3-17.8 126.1-47.2L428.05 447c2.6 2.6 6.1 4 9.5 4s6.9-1.3 9.5-4c5.2-5.2 5.2-13.8 0-19zM26.95 192.3c0-91.2 74.2-165.3 165.3-165.3 91.2 0 165.3 74.2 165.3 165.3s-74.1 165.4-165.3 165.4c-91.1 0-165.3-74.2-165.3-165.4z"/></svg>
-        <input type="search" id="tipue_search_input" class="Search__field" placeholder="Search..." autocomplete="on" results=25 autosave=text_search>
+        <svg class="Search__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 451 451">
+            <path d="M447.05 428l-109.6-109.6c29.4-33.8 47.2-77.9 47.2-126.1C384.65 86.2 298.35 0 192.35 0 86.25 0 .05 86.3.05 192.3s86.3 192.3 192.3 192.3c48.2 0 92.3-17.8 126.1-47.2L428.05 447c2.6 2.6 6.1 4 9.5 4s6.9-1.3 9.5-4c5.2-5.2 5.2-13.8 0-19zM26.95 192.3c0-91.2 74.2-165.3 165.3-165.3 91.2 0 165.3 74.2 165.3 165.3s-74.1 165.4-165.3 165.4c-91.1 0-165.3-74.2-165.3-165.4z"/>
+        </svg>
+        <input type="search" id="tipue_search_input" class="Search__field" placeholder="Search..." autocomplete="on"
+               results=25 autosave=text_search>
     </div>
-</header>
-<div class="Columns content">
-    <aside class="Columns__left Collapsible">
-        <div class="Collapsible__container">
-            <button type="button" class="Button Collapsible__trigger">
-                <span class="Collapsible__trigger--bar"></span>
-                <span class="Collapsible__trigger--bar"></span>
-                <span class="Collapsible__trigger--bar"></span>
-            </button>
-        </div>
 
         <div class="Collapsible__content">
             <!-- Navigation -->
-            <ul class='Nav'><li class='Nav__item '><a href="../简介.html">简介</a></li><li class='Nav__item  has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Get Started</a><ul class='Nav'><li class='Nav__item '><a href="../Get_Started/创建我的App.html">创建我的App</a></li><li class='Nav__item '><a href="../Get_Started/深入服务开发.html">深入服务开发</a></li><li class='Nav__item '><a href="../Get_Started/创建Package.html">创建Package</a></li></ul></li><li class='Nav__item Nav__item--open has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>框架基础</a><ul class='Nav'><li class='Nav__item Nav__item--active'><a href="../框架基础/基础结构.html">基础结构</a></li><li class='Nav__item '><a href="../框架基础/配置系统.html">配置系统</a></li><li class='Nav__item '><a href="../框架基础/调试与日志.html">调试与日志</a></li><li class='Nav__item '><a href="../框架基础/勾子与小工具.html">勾子与小工具</a></li><li class='Nav__item '><a href="../框架基础/路由入口与中间件.html">路由入口与中间件</a></li><li class='Nav__item '><a href="../框架基础/依赖注入与服务.html">依赖注入与服务</a></li><li class='Nav__item '><a href="../框架基础/Meta概念.html">Meta概念</a></li><li class='Nav__item '><a href="../框架基础/调用方法速查.html">调用方法速查</a></li></ul></li><li class='Nav__item  has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>业务实践</a><ul class='Nav'><li class='Nav__item '><a href="../业务实践/选择合适的Access.html">选择合适的Access</a></li><li class='Nav__item '><a href="../业务实践/系统发布与环境配置.html">系统发布与环境配置</a></li></ul></li></ul>
+            <ul class='Nav'><li class='Nav__item '><a href="../Get_Started.html">Get Started</a></li><li class='Nav__item Nav__item--open has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>框架基础</a><ul class='Nav'><li class='Nav__item Nav__item--active'><a href="../框架基础/基础结构.html">基础结构</a></li><li class='Nav__item '><a href="../框架基础/配置系统.html">配置系统</a></li><li class='Nav__item '><a href="../框架基础/调试与日志.html">调试与日志</a></li><li class='Nav__item '><a href="../框架基础/勾子与语言包.html">勾子与语言包</a></li><li class='Nav__item '><a href="../框架基础/通用中间件.html">通用中间件</a></li><li class='Nav__item '><a href="../框架基础/Meta组件.html">Meta组件</a></li><li class='Nav__item '><a href="../框架基础/小工具.html">小工具</a></li></ul></li><li class='Nav__item  has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Web模块</a><ul class='Nav'><li class='Nav__item '><a href="../Web模块/入口.html">入口</a></li><li class='Nav__item '><a href="../Web模块/HTTP消息.html">HTTP消息</a></li><li class='Nav__item '><a href="../Web模块/控制器与路由.html">控制器与路由</a></li><li class='Nav__item '><a href="../Web模块/中间件.html">中间件</a></li><li class='Nav__item '><a href="../Web模块/模版.html">模版</a></li><li class='Nav__item '><a href="../Web模块/协议与错误处理.html">协议与错误处理</a></li><li class='Nav__item '><a href="../Web模块/会话与日志.html">会话与日志</a></li><li class='Nav__item '><a href="../Web模块/测试.html">测试</a></li></ul></li><li class='Nav__item  has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>业务实践</a><ul class='Nav'><li class='Nav__item '><a href="../业务实践/选择合适的Access.html">选择合适的Access</a></li><li class='Nav__item '><a href="../业务实践/系统发布与环境配置.html">系统发布与环境配置</a></li></ul></li></ul>
 
             <div class="Links">
                 
@@ -71,86 +70,75 @@
     <div class="s-content">
         <ul class="TableOfContents">
 <li>
-<p><a href="#page_%E6%9E%B6%E6%9E%84%E7%AE%80%E8%BF%B0">架构简述</a></p>
+<p><a href="#page_section_1">架构简述</a></p>
 </li>
 <li>
-<p><a href="#page_%E8%BF%90%E8%A1%8C%E6%97%B6%E5%AF%B9%E8%B1%A1">运行时对象</a></p>
+<p><a href="#page_section_2">运行时对象</a></p>
 <ul class="TableOfContents">
 <li>
-<p><a href="#page_Runtime%E7%9A%84%E4%B8%BB%E8%A6%81%E6%96%B9%E6%B3%95">Runtime的主要方法</a></p>
+<p><a href="#page_Runtime">Runtime的主要方法</a></p>
 </li>
 </ul>
 </li>
 <li>
-<p><a href="#page_%E5%8C%85%E5%AF%B9%E8%B1%A1+Package">包对象 Package</a></p>
+<p><a href="#page_-Package">包对象 Package</a></p>
 <ul class="TableOfContents">
 <li>
-<p><a href="#page_inner%E5%88%AB%E5%90%8D">inner别名</a></p>
-</li>
-<li>
-<p><a href="#page_%E8%AE%BF%E9%97%AEPackage%E5%AF%B9%E8%B1%A1">访问Package对象</a></p>
+<p><a href="#page_Package">访问Package对象</a></p>
 <ul class="TableOfContents">
 <li>
-<p><a href="#page_%E8%AE%BF%E9%97%AE%E5%8C%85%E5%86%85%E9%83%A8%E7%9A%84%E6%9C%8D%E5%8A%A1">访问包内部的服务</a></p>
+<p><a href="#page_section_6">使用包容器</a></p>
 </li>
 <li>
-<p><a href="#page_%E4%BD%BF%E7%94%A8%E5%8C%85%E5%AE%B9%E5%99%A8">使用包容器</a></p>
+<p><a href="#page_section_7">基础方法</a></p>
 </li>
 <li>
-<p><a href="#page_%E9%A2%84%E7%95%99%E6%96%B9%E6%B3%95">预留方法</a></p>
-</li>
-<li>
-<p><a href="#page_%E5%8C%85%E9%97%A8%E9%9D%A2%E7%9A%84%E8%AE%BF%E9%97%AE%E4%BC%98%E5%85%88%E7%BA%A7">包门面的访问优先级</a></p>
+<p><a href="#page_section_8">预留方法</a></p>
 </li>
 </ul>
 </li>
 <li>
-<p><a href="#page_core%E6%A0%B8%E5%BF%83%E5%8C%85">core核心包</a></p>
+<p><a href="#page_core">core核心包</a></p>
 </li>
 </ul>
 </li>
 <li>
-<p><a href="#page_%E6%A1%86%E6%9E%B6%E7%9A%84%E5%BC%95%E5%AF%BC">框架的引导</a></p>
+<p><a href="#page_section_10">框架的启动</a></p>
 <ul class="TableOfContents">
 <li>
-<p><a href="#page_bootstrap.php">bootstrap.php</a></p>
+<p><a href="#page_bootstrap-php">bootstrap.php</a></p>
 </li>
 <li>
-<p><a href="#page_%E5%BC%95%E5%AF%BC%E6%96%87%E4%BB%B6%E5%88%86%E7%B1%BB%E5%BB%BA%E8%AE%AE">引导文件分类建议</a></p>
+<p><a href="#page_section_12">引导文件分类建议</a></p>
 </li>
 <li>
-<p><a href="#page_%E5%90%AF%E5%8A%A8%E6%A1%86%E6%9E%B6">启动框架</a></p>
+<p><a href="#page_section_13">启动框架</a></p>
 </li>
 </ul>
 </li>
 </ul>
-<h1 id="page_%E6%9E%B6%E6%9E%84%E7%AE%80%E8%BF%B0">架构简述</h1>
+<h1 id="page_section_1">架构简述</h1>
 <ul>
-<li>Combi框架的基础结构由一个<code>Runtime</code>运行时对象，和若干个<code>Package</code>包对象组成。
-<ul>
-<li>Runtime与Package在通常情况下均为单件调用。</li>
-</ul>
-</li>
-<li>所有Package均注册在作为容器的Runtime对象中。</li>
-<li>运行具体应用时，需要指定一个Package作为主包<code>Main Package</code>。
-<ul>
-<li>主包有权覆盖其他Package内的一些代码，比如配置等。</li>
-</ul>
-</li>
+<li>一个基于 Combi 框架的应用程序由<code>Runtime</code>容器和若干<code>Package</code>(包）组成。</li>
+<li>
+<code>Package</code>均以<code>pid</code>作为名称，注册在<code>Runtime</code>容器中。</li>
+<li>所有 Combi 应用都依赖于 Combi 核心库，核心库提供了框架所必须的基础库，包括了Runtime，Core包以及Chord命令行支持。</li>
+<li>运行具体应用时，需要指定一个 Package 作为主包<code>Main Package</code>。主包有权覆盖其他Package内的配置文件等资源。</li>
 </ul>
 <p><img src="images/base.jpg" alt="基础架构" /></p>
-<h1 id="page_%E8%BF%90%E8%A1%8C%E6%97%B6%E5%AF%B9%E8%B1%A1">运行时对象</h1>
-<p>Runtime的单例会在引用框架时创建，引用到的Package也会自动创建，并以包名<code>pid</code>作为键名注册到Runtime中。</p>
-<p>Runtime提供了门面方法，可以便捷地获取已注册Package对象。假设访问pid为app的包的代码如下：</p>
-<pre><code class="language-php">use Combi\Core\Runtime as rt;
+<h1 id="page_section_2">运行时对象</h1>
+<p>Runtime的单例会在引用框架时创建，建议使用<code>rt</code>别名访问其单例。以下代码获取了Runtime的单例实例，并从中获取<code>pid</code>为app的包对象：</p>
+<pre><code class="language-php">use Combi {
+    Runtime as rt
+};
 
-$package = rt::app();
+$runtime = rt::instance();
+$package = $runtime-&gt;app;
 </code></pre>
-<blockquote>
-<p>顶部的use语句是combi框架所推荐的别名方式，除了<code>rt</code>，之后还会见到<code>core</code>、<code>inner</code>以及<code>helper</code>等别名。
-使用脚手架指令生成的类文件会自动建立推荐别名。</p>
-</blockquote>
-<h2 id="page_Runtime%E7%9A%84%E4%B8%BB%E8%A6%81%E6%96%B9%E6%B3%95">Runtime的主要方法</h2>
+<p>Runtime提供了魔术方法，可以调用静态方法的方式快捷获取注册在其中的包对象，如上面的代码可写成：</p>
+<pre><code class="language-php">$package = rt::app();
+</code></pre>
+<h2 id="page_Runtime">Runtime的主要方法</h2>
 <p>Runtime对象内置了少量方法，在命名包对象pid时，请注意避免下列名称。</p>
 <table>
 <thead>
@@ -161,101 +149,73 @@ $package = rt::app();
 </thead>
 <tbody>
 <tr>
-<td><code>rt::isProd()</code></td>
-<td>是否是生产环境</td>
-</tr>
-<tr>
-<td><code>rt::config()</code></td>
-<td>获取框架基础配置</td>
-</tr>
-<tr>
-<td><code>rt::register()</code></td>
-<td>注册一个包</td>
-</tr>
-<tr>
-<td><code>rt::ready()</code></td>
-<td>启动框架</td>
-</tr>
-<tr>
 <td><code>rt::main()</code></td>
 <td>获取主包对象</td>
 </tr>
 <tr>
-<td><code>rt::dir()</code></td>
-<td>返回某路径的目录对象</td>
+<td><code>rt::isProd()</code></td>
+<td>是否是生产环境</td>
+</tr>
+<tr>
+<td><code>rt::env($name)</code></td>
+<td>获取环境配置变量值</td>
+</tr>
+<tr>
+<td><code>rt::register($package)</code></td>
+<td>注册一个包</td>
+</tr>
+<tr>
+<td><code>rt::up()</code></td>
+<td>启动框架</td>
 </tr>
 </tbody>
 </table>
-<p>调用范例：</p>
-<pre><code class="language-php">if (rt::isProd()) {
-    // do something...
-}
-</code></pre>
-<h1 id="page_%E5%8C%85%E5%AF%B9%E8%B1%A1+Package">包对象 Package</h1>
-<p>包是构造combi应用的基本颗粒，一个包中会包括代码、配置、资源等业务所需的文件，并通过composer被其他包引用。</p>
-<blockquote>
-<p>一般情况下包对象会在composer载入时自动创建，因此在<code>composer.json</code>中要注意引用顺序，combi核心库应该放在其他引用包之前。</p>
-</blockquote>
-<p>当开始构建一个新的combi包的时候，需要创建一个门面对象，继承于Package门面基类：</p>
+<h1 id="page_-Package">包对象 Package</h1>
+<p>包是构造combi应用的基本颗粒，一个包中会包括代码、配置、资源等业务所需的文件，并通过composer被其他包引用。在推荐状态下，一个Package对应一个composer项目。</p>
+<p>按规范开发的包应用，只需要在composer中引用即可自动初始化供使用。因此在<code>composer.json</code>中要注意引用顺序，combi核心库应该放在其他引用包之前。</p>
+<p>当开始构建一个新的combi包的时候，需要创建一个Package包对象：</p>
 <pre><code class="language-php">namespace My\Zone;
 
-class Package extends \Combi\Facades\Package
+class Package extends \Combi\Package
 {
-    protected static $pid = 'my_zone';
+    protected static $pid = 'myZone';
 }
 </code></pre>
 <blockquote>
 <p>包的门面对象必须放置于包所在空命空间的根下，否则部分功能可能不能正常工作。</p>
 </blockquote>
 <p>之后，如果包被正确注册到runtime对象中，则可以这样访问到包实例：</p>
-<pre><code class="language-php">$package = rt::my_zone();
+<pre><code class="language-php">$package = rt::myZone();
 </code></pre>
 <blockquote>
-<p>推荐以该包所在命名空间，以下划线连接每一级空间名的全小写字母来命名pid</p>
+<p>Combi建议使用camelCase风格对pid进行命名。</p>
 </blockquote>
-<h2 id="page_inner%E5%88%AB%E5%90%8D">inner别名</h2>
-<p>使用<code>rt::&lt;package&gt;()</code>来访问包是一种全局路由方式，在包体内编码时会显得太啰嗦。因此引入了门面类的<code>inner</code>别名，推荐在包体内的代码使用inner，通过门面类来访问自身所在包对象。</p>
-<pre><code class="language-php">namespace My\Zone\Models;
-
-use My\Zone\Package as inner;
-</code></pre>
-<p>这样，就可以通过inner门面别名方便地访问包内的配置、服务等资源。和rt一样，框架提供的脚手架会自动生成inner门面别名。</p>
-<h2 id="page_%E8%AE%BF%E9%97%AEPackage%E5%AF%B9%E8%B1%A1">访问Package对象</h2>
-<p>直接通过Package对象能访问到的资源有以下几种：</p>
-<ul>
-<li>在配置文件中声明的服务</li>
-<li>包对象作为容器注册的资源</li>
-<li>包对象自带的预留方法</li>
-</ul>
-<h3 id="page_%E8%AE%BF%E9%97%AE%E5%8C%85%E5%86%85%E9%83%A8%E7%9A%84%E6%9C%8D%E5%8A%A1">访问包内部的服务</h3>
-<p>先忽略配置服务的细节，可以简单地把服务理解为写在配置文件中，已经封装好依赖关系的可用对象。</p>
-<p>如果有一个服务叫mail，并且提供一个create方法，那么通过inner门面访问该方法的代码可能是这样：</p>
-<pre><code class="language-php">$mail = inner::mail()-&gt;create();
-</code></pre>
-<p>如果该服务所在包的pid是my_zone，那么在另一个包中使用rt门面访问该方法的代码：</p>
-<pre><code class="language-php">$mail = rt::my_zone()-&gt;mail()-&gt;create();
-</code></pre>
-<h3 id="page_%E4%BD%BF%E7%94%A8%E5%8C%85%E5%AE%B9%E5%99%A8">使用包容器</h3>
+<h2 id="page_Package">访问Package对象</h2>
+<h3 id="page_section_6">使用包容器</h3>
 <p>可以简单地把包看作一个容器，把包内业务中需要用到的对象/变量等存放进去。</p>
 <pre><code class="language-php">
-inner::instacne()-&gt;timeout  = 30;
-inner::instacne()-&gt;user     = new \stdClass();
-inner::instance()-&gt;handler  = function(): \stdClass {
+rt::myZone()-&gt;timeout  = 30;
+rt::myZone()-&gt;user     = new \stdClass();
+rt::myZone()-&gt;handler  = function(): \stdClass {
     $handler = new \stdClass();
-    $handler-&gt;is_running = true;
+    $handler-&gt;isRaised = true;
     return $handler;
 };
 
-var_dump(inner::instance()-&gt;timeout);   // print int(30)
-var_dump(inner::instance()-&gt;user);      // print a std object
-var_dump(inner::instance()-&gt;handler);   // print a std object with proporty is_running
+var_dump(rt::myZone()-&gt;timeout);   // print int(30)
+var_dump(rt::myZone()-&gt;user);      // print a std object
+var_dump(rt::myZone()-&gt;handler);   // print a std object with proporty is_running
 </code></pre>
 <p>如上所示，除了直接放入变量，包容器支持传递一个闭包，这样只有在第一次访问此属性时才会进行初始化，之后的访问只会返回闭包执行后的结果。</p>
 <blockquote>
 <p>注意，只支持传闭包对象<code>Closure</code>进行初始化，带<code>__invoke()</code>的对象不会在第一次访问时触发<code>__invoke()</code>方法并替换原对象。</p>
 </blockquote>
-<h3 id="page_%E9%A2%84%E7%95%99%E6%96%B9%E6%B3%95">预留方法</h3>
-<p>Package基类有一些预留方法，这些预留方法不能被用作服务名注册。</p>
+<h3 id="page_section_7">基础方法</h3>
+<p>Package类作为包的核心，也可以提供一些与包功能相关的基础方法。比如默认的Http服务脚手架，就给App Package类添加了<code>runByCgi()</code>这个方法。</p>
+<pre><code class="language-php">rt::app()-&gt;runByCgi();
+</code></pre>
+<h3 id="page_section_8">预留方法</h3>
+<p>Package基类有一些预留方法。</p>
 <table>
 <thead>
 <tr>
@@ -265,62 +225,47 @@ var_dump(inner::instance()-&gt;handler);   // print a std object with proporty i
 </thead>
 <tbody>
 <tr>
-<td><code>inner::instance()</code></td>
+<td><code>Package::instance()</code></td>
 <td>返回包实例</td>
 </tr>
 <tr>
-<td><code>inner::pid()</code></td>
+<td><code>Package::pid()</code></td>
 <td>返回包的pid</td>
 </tr>
 <tr>
-<td><code>inner::dir()</code></td>
-<td>根据配置与路径返回一个资源目录对象</td>
-</tr>
-<tr>
-<td><code>inner::dict()</code></td>
-<td>根据语言包配置获得翻译结果</td>
-</tr>
-<tr>
-<td><code>inner::config()</code></td>
-<td>获取配置</td>
-</tr>
-<tr>
-<td><code>inner::path()</code></td>
+<td><code>Package::path($category, $path)</code></td>
 <td>根据配置和路径获取路径字串</td>
 </tr>
 <tr>
-<td><code>inner::service()</code></td>
-<td>获取服务对象</td>
+<td><code>Package::dir($category, $path)</code></td>
+<td>根据配置与路径返回一个资源目录对象</td>
+</tr>
+<tr>
+<td><code>Package::logger($channel)</code></td>
+<td>根据配置获取包中定义的日志对象</td>
+</tr>
+<tr>
+<td><code>Package::dict($name, $key)</code></td>
+<td>根据语言包配置获得翻译结果</td>
+</tr>
+<tr>
+<td><code>Package::config($name)</code></td>
+<td>获取配置</td>
+</tr>
+<tr>
+<td><code>Package::get()</code> &amp; <code>Package::set()</code></td>
+<td>扩展容器基类功能</td>
 </tr>
 </tbody>
 </table>
-<h3 id="page_%E5%8C%85%E9%97%A8%E9%9D%A2%E7%9A%84%E8%AE%BF%E9%97%AE%E4%BC%98%E5%85%88%E7%BA%A7">包门面的访问优先级</h3>
-<p>如果直接获取包实例，那么访问包内的服务、容器内资源、以及包自带方法是较为显式的：</p>
-<pre><code class="language-php">$package = inner::instance();
-
-var_dump($package-&gt;pid()); // 访问包实例方法
-var_dump($package-&gt;timeout); // 访问包容器内资源
-var_dump($package-&gt;mail()); // 访问包内的服务
+<h2 id="page_core">core核心包</h2>
+<p>Combi框架中的基础服务由Core包提供，比如以下代码可以获取当前格式化后的时间：</p>
+<pre><code class="language-php">echo rt::core()-&gt;now-&gt;format('Y-m-d H:i:s');
 </code></pre>
-<p>如果通过门面对象访问，访问容器内资源也会以方法名的形式调用：</p>
-<pre><code class="language-php">var_dump(inner::timeout()); // 这也是访问容器内的timeout
-</code></pre>
-<p>当三者名称存在冲突时，使用门面访问的优先级为：</p>
-<ol>
-<li>包实例方法</li>
-<li>容器内资源</li>
-<li>包内的服务</li>
-</ol>
-<p>如果在容器资源名冲突的情况下，可以使用<code>inner::servcie('service_name')</code>来访问服务。</p>
-<h2 id="page_core%E6%A0%B8%E5%BF%83%E5%8C%85">core核心包</h2>
-<p>combi框架本身的大多数代码也是作为package注册在runtime中的，因此使用脚手架创建文件时，会默认加上core别名，以供方便地访问核心包。</p>
-<pre><code class="language-php">use Combi\Package as core;
-echo core::now()-&gt;format('Y-m-d H:i:s');
-</code></pre>
-<p>以上代码将输出格式化的当前时间</p>
-<h1 id="page_%E6%A1%86%E6%9E%B6%E7%9A%84%E5%BC%95%E5%AF%BC">框架的引导</h1>
-<p>combi包内的<code>src/</code>目录下的文件一般为框架引导文件，其入口文件建议为<code>bootstrap.php</code></p>
-<p>通过在<code>composer.json</code>中注册自动载入，因此combi包一旦在composer中引用，即会自动载入并初始化。</p>
+<p><code>Core::$now</code>是一个会随着每次任务自行更新的当前时间对象，之后介绍的大多数功能也是由Core包提供的。</p>
+<h1 id="page_section_10">框架的启动</h1>
+<p>这里介绍一下框架的启动方式。</p>
+<p>包内的<code>src/</code>目录下的文件一般为框架引导文件，其入口文件建议为<code>bootstrap.php</code>，通过在composer.json的<code>autoload</code>域中注册自动载入，因此combi包一旦在composer中引用，即会自动载入并初始化。</p>
 <p>例如：</p>
 <pre><code>&quot;autoload&quot;: {
     &quot;psr-4&quot;: {&quot;My\\Zone\\&quot;: &quot;src/classes/&quot;},
@@ -329,17 +274,19 @@ echo core::now()-&gt;format('Y-m-d H:i:s');
     ]
 },
 </code></pre>
-<h2 id="page_bootstrap.php">bootstrap.php</h2>
+<h2 id="page_bootstrap-php">bootstrap.php</h2>
 <p>bootstrap.php作为包的引导入口，一般的内容如下：</p>
 <pre><code class="language-php">namespace My\Zone;
 
-use Combi\Facades\Runtime as rt;
+use Combi {
+    Runtime as rt
+};
 
 rt::register(Package::instance(__DIR__),
-    'dependencies', 'hooks', 'helpers', 'business');
+    'dependencies', 'helpers', 'hooks', 'routes');
 </code></pre>
-<p>调用包门面对象创建包对象的单件，之后通过<code>rt::register()</code>方法将包注册进runtime。register方法后面支持填入多个<code>src/</code>同目录下的php文件名，这样在使用<code>rt::ready()</code>方法启动框架时，会按序载入这些引导文件。</p>
-<h2 id="page_%E5%BC%95%E5%AF%BC%E6%96%87%E4%BB%B6%E5%88%86%E7%B1%BB%E5%BB%BA%E8%AE%AE">引导文件分类建议</h2>
+<p>调用包门面对象创建包对象的单件，之后通过<code>rt::register()</code>方法将包注册进runtime。register方法后面支持填入多个<code>src/</code>同目录下的php文件名，这样在使用<code>rt::up()</code>方法启动框架时，会按序载入这些引导文件。</p>
+<h2 id="page_section_12">引导文件分类建议</h2>
 <p>src目录下的其他引导文件，可能会有以下这些类型：</p>
 <table>
 <thead>
@@ -362,10 +309,6 @@ rt::register(Package::instance(__DIR__),
 <td>辅助方法声明</td>
 </tr>
 <tr>
-<td>business.php</td>
-<td>业务层初始化，包括内部路由别名与中间件</td>
-</tr>
-<tr>
 <td>routes.php</td>
 <td>HTTP路由声明</td>
 </tr>
@@ -375,20 +318,23 @@ rt::register(Package::instance(__DIR__),
 </tr>
 </tbody>
 </table>
-<h2 id="page_%E5%90%AF%E5%8A%A8%E6%A1%86%E6%9E%B6">启动框架</h2>
+<h2 id="page_section_13">启动框架</h2>
 <p>在具体应用的入口文件中，可以用以下代码启动combi框架。</p>
-<pre><code class="language-php">use Combi\Core\Runtime as rt;
+<pre><code class="language-php">use Combi\{
+    Runtime as rt
+};
 
-require __DIR__ . '/../vendor/autoload.php';
+$loader = include __DIR__.'/../vendor/autoload.php';
 
-rt::ready('app', require __DIR__ . '/../config.php');
+rt::up('app', require __DIR__.'/../env.php');
 </code></pre>
-<p>以上代码假设位于combi项目的<code>public/</code>目录中，调用了<code>rt::ready()</code>方法，指定了pid为app的包作为主包来启动框架。之后框架的各个模块，以及所载入的包都处于可用状态了。</p>
+<p>以上代码假设位于combi项目的<code>public/</code>目录中，调用了<code>rt::up()</code>方法，指定了pid为app的包作为主包来启动框架。</p>
+<p>需要注意的是，在上代码仅为框架启动，之后框架的各个模块，以及所载入的包都处于可用状态。但并不意味着业务进入工作状态，如果需要提供http服务，或是其他类型服务，还是需要调用对应的模块执行代码。</p>
     </div>
 
         <nav>
         <ul class="Pager">
-            <li class=Pager--prev><a href="../Get_Started/创建Package.html">Previous</a></li>            <li class=Pager--next><a href="../框架基础/配置系统.html">Next</a></li>        </ul>
+            <li class=Pager--prev><a href="../Get_Started.html">Previous</a></li>            <li class=Pager--next><a href="../框架基础/配置系统.html">Next</a></li>        </ul>
     </nav>
     </article>
 

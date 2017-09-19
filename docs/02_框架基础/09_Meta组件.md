@@ -1,19 +1,21 @@
 # Meta简述
 
-Combi中的Meta是一种结构化的数据载体。在业务逻辑的流转中，推荐使用基于Meta系统的对象承载数据，尤其是结构型（Struct）的数据。在核心包提供的功能中，如通讯的消息体、数据模型等，都会用到Meta对象。
+在很多情况下，我们需要在应用中处理一组有关联的数据。在其他语言中，可能会提供类似 Struct 之类的数据类型作为支持。
+
+在Combi中，我们提供了Meta对象，用于实现操作一组数据的常用方法。在核心包提供的功能中，如通讯的消息体、数据模型等，都会用到Meta对象。
 
 Meta提供的基础类有```Collection```和```Struct```两种，前者是一个列表或是一个动态的结构体，后者为一个确定的结构体。同时为其提供了一系列Interfaces和Traits，可便捷统一地实现例如序列化，结构定义和检查等功能。
 
 # Collection基类
 
-Collection基类位于```Combi\Meta\Collection```，提供了一个列表式的可伸缩数据集合，也可以使用字串键值用作key/value结构存储。```Combi\Meta\Container```是collection的别名，Combi中的很多容器类对象都继承自Collection基类。
+Collection基类位于```Combi\Core\Meta\Collection```，提供了一个列表式的可伸缩数据集合，也可以使用字串键值用作key/value结构存储。```Combi\Core\Meta\Container```是collection的别名，Combi中的很多容器类对象都继承自Collection基类。
 
 ## 创建自己的Collection类
 
 ```php
-use Combi\Meta\Collection;
+use Combi\Core;
 
-class MyCollection extends Collection {
+class MyCollection extends Core\Meta\Collection {
     // ... your code
 }
 ```
@@ -27,13 +29,13 @@ Collection基类没有任何抽象方法需要实现，也不需要预先定义�
 ```php
 $collection = new MyCollection();
 
-$collection->set('name', 'triss');
+$collection->set('name', 'Triss');
 
 echo $collection->get('name'); // print 'triss'
 
 var_dump($collection->has('name')); // print true
 
-echo $collection->count(); // print 1
+echo count($collection); // print 1
 
 $collection->remove('name'); // name is be removed
 
@@ -73,7 +75,7 @@ $collection->push($model);
 
 ### 转换为数组
 
-```toArray()```方法可将一个collection转换为数组。如果collection中包含的某些对象同样属于```Combi\Interfaces\Arrayable```的实现，将会一并转换为数组。
+```toArray()```方法可将一个collection转换为数组。如果collection中包含的某些对象同样属于```Combi\Core\Interfaces\Arrayable```的实现，将会一并转换为数组。
 
 ```php
 var_dump($collection->toArray());
@@ -93,14 +95,14 @@ foreach ($collection as $key => $value) {
 
 # Struct基类
 
-Struct基类位于```Combi\Meta\Struct```，提供一个确定的、具有自检特性的key/value数据结构。
+Struct基类位于```Combi\Core\Meta\Struct```，提供一个确定的、具有自检特性的key/value数据结构。
 
 ## 创建自己的Struct
 
 下面的例程定义了一个名为Person的结构类。相比Collection，Struct的定义要多出有关结构描述的内容。
 
 ```php
-use Combi\Meta\Struct;
+use Combi\Core;
 
 /**
  *
@@ -108,7 +110,7 @@ use Combi\Meta\Struct;
  * @property string $father
  * @property int $age
  */
-class Person extends Struct {
+class Person extends Core\Meta\Struct {
     protected static $_defaults = [
         'name'      => null,
         'father'    => '',
@@ -127,7 +129,7 @@ class Person extends Struct {
 
 >   对Struct类来说，当尝试访问某个属性时，如果该属性事先未被设置，会返回默认值，如同已经被设置过那样。默认值设null，一般情况下表示你希望**该值必须由外部赋予**方可正确运作，这在之后的confirm功能介绍中也会起到作用。
 
-作为推荐，由于Struct属性使用重载实现，因此在类注释中标注每个属性会让类的使用更加方便。
+作为推荐，由于Struct属性使用重载实现，因此中使用```@property```注释标注每个属性会让类的使用更加方便。
 
 ### 获取Struct的结构定义
 
@@ -146,7 +148,7 @@ Struct的结构迁移基于deprecated配置，迁移一个结构体的规则如�
 * 移除字段时，保留```$_defaults```中的字段定义，在```$_deprecated```中添加该字段。
 
 ```php
-use Combi\Meta\Struct;
+use Combi\Core;
 
 /**
  *
@@ -154,7 +156,7 @@ use Combi\Meta\Struct;
  * @property int $age
  * @property int gender
  */
-class Person extends Struct {
+class Person extends Core\Meta\Struct {
     protected static $_defaults = [
         'name'      => null,
         'father'    => '',
@@ -178,7 +180,7 @@ class Person extends Struct {
 
 ```php
 $me = new Person();
-$me->set('father', 'unamed);
+$me->set('father', 'unamed');
 echo $me->get('father');
 ```
 
@@ -189,7 +191,7 @@ echo $me->get('father');
 ```php
 $someone = new Person();
 $someone
-    ->set('name', 'triss)
+    ->set('name', 'triss')
     ->set('father', 'unamed')
     ->set('age', 50)
     ->set('gender', 2);
@@ -198,13 +200,13 @@ var_dump($someone->toArray());
 
 上面例程不会输出father字段。
 
-通过```defaults()```方法获取字段列表时，也会跳过deprecated字段。但下面方法可以获取全部字段：
+通过```defaults()```方法获取字段列表时，也会跳过deprecated字段。但下面方法依然可以获取获取废弃部分的全部字段：
 
 ```php
 var_dump(Person::defaults(true));
 ```
 
-该方法支持接收一个```bool $include_deprecated```参数，用于返回全部字段结构。
+该方法支持接收一个```bool $includeDeprecated```参数，用于返回全部字段结构。
 
 >   要判断一个字段是否为弃用，可以使用```Person::isKeyDeprecated($key)```方法，返回类型为bool型。
 
@@ -233,7 +235,7 @@ confirm的作用是当对Struct中的数据进行了一系列变更后，将要�
 可以自定义一些字段的校验规则，如下所示：
 
 ```php
-use Combi\Meta\Struct;
+use Combi\Core;
 
 /**
  *
@@ -241,7 +243,7 @@ use Combi\Meta\Struct;
  * @property int $age
  * @property int gender
  */
-class Person extends Struct {
+class Person extends Core\Meta\Struct {
     protected static $_defaults = [
         'name'      => null,
         'father'    => '',
@@ -276,7 +278,7 @@ Struct定义了一个空方法```afterConfirm()```，对于一些多字段相关
 假设Person类有一个不算合理的逻辑：所有大于40岁的只能是男性（gender=1），那么可以这么写：
 
 ```php
-use Combi\Meta\Struct;
+use Combi\Core;
 
 /**
  *
@@ -284,7 +286,7 @@ use Combi\Meta\Struct;
  * @property int $age
  * @property int gender
  */
-class Person extends Struct {
+class Person extends Core\Meta\Struct {
     protected static $_defaults = [
         'name'      => null,
         'father'    => '',
@@ -320,24 +322,24 @@ class Person extends Struct {
 * remove()
 * clear()
 * all()
+* count()
 
 以上方法以及迭代器用法，与Collection基本相同。
 
-> 其中```all()```方法与```defaults()```一样，可以接收一个```bool $include_deprecated```参数，为true时将忽略deprecated设置返回全部字段数据。默认为false
+> 其中```all()```方法与```defaults()```一样，可以接收一个```bool $includeDeprecated```参数，为true时将忽略deprecated设置返回全部字段数据。默认为false
 
 > Struct基类不支持```push()```方法。
 
 # Meta组件
 
-Meta系统除了2个抽象类，还基于trait提供了一系列扩展组件，为数据承载提供便利。
+Meta系统除了2个抽象类，还提供了一系列扩展组件，为数据承载提供便利。
 
 ## ArrayAccess
 
 可以像数组一样访问对象容器中的属性。此trait正常动作需要使用的类```implement \ArrayAccess```接口。
 
 ```php
-use Combi\Meta\Struct;
-use Combi\Meta\Extensions;
+use Combi\Core;
 
 /**
  *
@@ -345,8 +347,8 @@ use Combi\Meta\Extensions;
  * @property int $age
  * @property int gender
  */
-class Person extends Struct implement \ArrayAccess {
-    use Extensions\ArrayAccess;
+class Person extends Core\Meta\Struct implement \ArrayAccess {
+    use Core\Meta\Extensions\ArrayAccess;
 
     // ...your code
 }
@@ -365,8 +367,7 @@ echo $person['name']; // print triss
 实现了```fill()```方法，允许填充一组数组进Meta对象。所填充的变量可以是数组也可以是另一个Meta对象。
 
 ```php
-use Combi\Meta\Struct;
-use Combi\Meta\Extensions;
+use Combi\Core;
 
 /**
  *
@@ -374,8 +375,8 @@ use Combi\Meta\Extensions;
  * @property int $age
  * @property int gender
  */
-class Person extends Struct {
-    use Extensions\Fillable;
+class Person extends Core\Meta\Struct {
+    use Core\Meta\Extensions\Fillable;
 }
 
 ```
@@ -401,10 +402,16 @@ $person->exclude('gender', 'age')
     ]); // 这里只有name字段被填充
 ```
 
-需要注意exclude()的设置为对象属性，在一次填充后不会被清楚。如果要清除之前的设定，需要重新调用一次。
+需要注意exclude()的设置为对象属性，在一次填充后不会被清除。如果要清除之前的设定，需要重新调用一次。
 
 ```php
-$person->exclude('');
+$person->exclude('gender', 'age')
+    ->fill([
+        'name'      => 'triss',
+        'gender'    => 2,
+        'age'       => 48,
+    ]) // 这里只有name字段被填充
+    ->exclude();
 ```
 
 ## IteratorAggregate
@@ -423,7 +430,7 @@ foreach ($person as $key => $value) {
 
 提供```toArray()```方法。Collection与Struct基类已经支持。
 
-使用此类时，建议同时```implement Combi\Common\Interfaces\Arrayable```。如果Meta对象中包括的字段同样实现了Arrayable接口，也会被调用转为数组。
+使用此类时，建议同时```implement Combi\Core\Interfaces\Arrayable```。如果Meta对象中包括的字段同样实现了Arrayable接口，也会被调用转为数组。
 
 ```php
 $arr = $person->toArray();
@@ -447,8 +454,7 @@ var_dump("$person");
 实现属性重载，方便访问属性。
 
 ```php
-use Combi\Meta\Struct;
-use Combi\Meta\Extensions;
+use Combi\Core;
 
 /**
  *
@@ -456,8 +462,8 @@ use Combi\Meta\Extensions;
  * @property int $age
  * @property int gender
  */
-class Person extends Struct {
-    use Extensions\Overloaded;
+class Person extends Combi\Core\Struct {
+    use Combi\Core\Extensions\Overloaded;
 }
 
 
@@ -488,8 +494,7 @@ unset($person->name);
 提供```toBin()```方法，使用msgpack对将Meta对象的数据转为二进制。可以当成是toArray()的二进制版本。
 
 ```php
-use Combi\Meta\Struct;
-use Combi\Meta\Extensions;
+use Combi\Core;
 
 /**
  *
@@ -497,8 +502,8 @@ use Combi\Meta\Extensions;
  * @property int $age
  * @property int gender
  */
-class Person extends Struct {
-    use Extensions\ToBin;
+class Person extends Combi\Core\Struct {
+    use Combi\Core\Extensions\ToBin;
 }
 ```
 
@@ -516,8 +521,7 @@ var_dump($person->toBin());
 该trait支持将对象序列化，使用msgpack后的二进制数据保存主要数据，占用空间更少，并提供了简单的版本控制。
 
 ```php
-use Combi\Meta\Struct;
-use Combi\Meta\Extensions;
+use Combi\Core;
 
 /**
  *
@@ -525,8 +529,8 @@ use Combi\Meta\Extensions;
  * @property int $age
  * @property int gender
  */
-class Person extends Struct {
-    use Extensions\Serializable;
+class Person extends Combi\Core\Struct {
+    use Combi\Core\Extensions\Serializable;
 }
 ```
 
@@ -540,8 +544,8 @@ $person = unserialize($packed);
 serializable提供了简单的版本控制，默认打包版本为1。如果需要升级版本，比如把版本号升到2，可以像下面这样通过复写方法实现。
 
 ```php
-class Person extends Struct {
-    use Extensions\Serializable;
+class Person extends Combi\Core\Struct {
+    use Combi\Core\Extensions\Serializable;
 
     protected static function version() {
         return 2;
@@ -568,11 +572,11 @@ class Person extends Struct {
 这时如果需要迁移打包数据，renew方法可能是这样：
 
 ```php
-class Person extends Struct {
-    use Extensions\Serializable;
+class Person extends Combi\Core\Struct {
+    use Combi\Core\Extensions\Serializable;
 
-    protected static function renew(array $data, $last_version) {
-        if ($last_version == 1) {
+    protected static function renew(array $data, $lastVersion) {
+        if ($lastVersion == 1) {
             $data[1] = $data[2]; // 原gender位置移至father位置
             $data[2] = 0; // 原gender位置变为age，给默认值0
         }
@@ -581,6 +585,39 @@ class Person extends Struct {
 }
 ```
 
+## Accessors
+
+实现了Accessors存取器勾子。
+
+```php
+use Combi\Core;
+
+/**
+ *
+ * @property string $name
+ * @property int $age
+ * @property int gender
+ */
+class Person extends Core\Meta\Struct {
+    use Core\Meta\Extensions\Accessors;
+
+    protected _get_age($value) {
+        return $value > 40 ? '??' : $value;
+    }
+
+    protected _set_name($value) {
+        $pos = strpos($value, ' ');
+        return substr($value, 0, $pos);
+    }
+}
+```
+
+在上面的代码中，当调用```echo $person->age```时，会隐藏大于40岁人的真实年龄。而当调用```$person->name = 'Triss Merigold'```时，只会将```Triss```赋值给name字段。
+
 ## Configurable
 
+待实现
+
 ## Mask
+
+待实现

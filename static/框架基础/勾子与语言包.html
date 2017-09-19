@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>       <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>          <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>          <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->  <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+    <title>勾子与语言包 - PHP\Combi</title>
+    <meta name="description" content="a php framework" />
+    <meta name="author" content="I, Me & Myself">
+    <meta charset="UTF-8">
+    <link rel="icon" href="../themes/daux/img/favicon-blue.png" type="image/x-icon">
+    <!-- Mobile -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Font -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700&subset=latin,cyrillic-ext,cyrillic' rel='stylesheet' type='text/css'>
+    <!-- CSS -->
+    <link href='../themes/daux/css/theme-blue.min.css' rel='stylesheet' type='text/css'>
+            <!-- Tipue Search -->
+        <link href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+    
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body class=" ">
+    <div class="Columns content">
+    <aside class="Columns__left Collapsible">
+        <button type="button" class="Button Collapsible__trigger">
+            <span class="Collapsible__trigger--bar"></span>
+            <span class="Collapsible__trigger--bar"></span>
+            <span class="Collapsible__trigger--bar"></span>
+        </button>
+
+        <a class="Brand" href="../index.html">PHP\Combi</a>
+
+    <div class="Search">
+        <svg class="Search__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 451 451">
+            <path d="M447.05 428l-109.6-109.6c29.4-33.8 47.2-77.9 47.2-126.1C384.65 86.2 298.35 0 192.35 0 86.25 0 .05 86.3.05 192.3s86.3 192.3 192.3 192.3c48.2 0 92.3-17.8 126.1-47.2L428.05 447c2.6 2.6 6.1 4 9.5 4s6.9-1.3 9.5-4c5.2-5.2 5.2-13.8 0-19zM26.95 192.3c0-91.2 74.2-165.3 165.3-165.3 91.2 0 165.3 74.2 165.3 165.3s-74.1 165.4-165.3 165.4c-91.1 0-165.3-74.2-165.3-165.4z"/>
+        </svg>
+        <input type="search" id="tipue_search_input" class="Search__field" placeholder="Search..." autocomplete="on"
+               results=25 autosave=text_search>
+    </div>
+
+        <div class="Collapsible__content">
+            <!-- Navigation -->
+            <ul class='Nav'><li class='Nav__item '><a href="../Get_Started.html">Get Started</a></li><li class='Nav__item Nav__item--open has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>框架基础</a><ul class='Nav'><li class='Nav__item '><a href="../框架基础/基础结构.html">基础结构</a></li><li class='Nav__item '><a href="../框架基础/配置系统.html">配置系统</a></li><li class='Nav__item '><a href="../框架基础/调试与日志.html">调试与日志</a></li><li class='Nav__item Nav__item--active'><a href="../框架基础/勾子与语言包.html">勾子与语言包</a></li><li class='Nav__item '><a href="../框架基础/通用中间件.html">通用中间件</a></li><li class='Nav__item '><a href="../框架基础/Meta组件.html">Meta组件</a></li><li class='Nav__item '><a href="../框架基础/小工具.html">小工具</a></li></ul></li><li class='Nav__item  has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Web模块</a><ul class='Nav'><li class='Nav__item '><a href="../Web模块/入口.html">入口</a></li><li class='Nav__item '><a href="../Web模块/HTTP消息.html">HTTP消息</a></li><li class='Nav__item '><a href="../Web模块/控制器与路由.html">控制器与路由</a></li><li class='Nav__item '><a href="../Web模块/中间件.html">中间件</a></li><li class='Nav__item '><a href="../Web模块/模版.html">模版</a></li><li class='Nav__item '><a href="../Web模块/协议与错误处理.html">协议与错误处理</a></li><li class='Nav__item '><a href="../Web模块/会话与日志.html">会话与日志</a></li><li class='Nav__item '><a href="../Web模块/测试.html">测试</a></li></ul></li><li class='Nav__item  has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>业务实践</a><ul class='Nav'><li class='Nav__item '><a href="../业务实践/选择合适的Access.html">选择合适的Access</a></li><li class='Nav__item '><a href="../业务实践/系统发布与环境配置.html">系统发布与环境配置</a></li></ul></li></ul>
+
+            <div class="Links">
+                
+                                    <div class="CodeToggler">
+                        <hr/>
+                                                    <a class="CodeToggler__button CodeToggler__button--main" href="#">Show Code Blocks Inline</a><br>
+                                            </div>
+                
+                            </div>
+        </div>
+    </aside>
+    <div class="Columns__right ">
+        <div class="Columns__right__content">
+            <div class="doc_content">
+                <article class="Page">
+
+    <div class="Page__header">
+        <h1><a href="../框架基础/基础结构.html">框架基础</a> <svg class="Page__header--separator" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 477.175 477.175"><path d="M360.73 229.075l-225.1-225.1c-5.3-5.3-13.8-5.3-19.1 0s-5.3 13.8 0 19.1l215.5 215.5-215.5 215.5c-5.3 5.3-5.3 13.8 0 19.1 2.6 2.6 6.1 4 9.5 4 3.4 0 6.9-1.3 9.5-4l225.1-225.1c5.3-5.2 5.3-13.8.1-19z"/></svg> <a href="../框架基础/勾子与语言包.html">勾子与语言包</a></h1>
+                    </div>
+
+
+    <div class="s-content">
+        <ul class="TableOfContents">
+<li>
+<p><a href="#page_Hook">Hook机制</a></p>
+<ul class="TableOfContents">
+<li>
+<p><a href="#page_Hook-2">注册一个Hook</a></p>
+<ul class="TableOfContents">
+<li>
+<p><a href="#page_Hook-2">Hook描述文件</a></p>
+</li>
+</ul>
+</li>
+<li>
+<p><a href="#page_Hook-2">设置Hook触发点</a></p>
+</li>
+<li>
+<p><a href="#page_Hookhandler">添加Hook调用handler</a></p>
+</li>
+<li>
+<p><a href="#page_taker">勾子参数传递和自定义taker</a></p>
+</li>
+<li>
+<p><a href="#page_Core">Core包勾子列表</a></p>
+</li>
+</ul>
+</li>
+<li>
+<p><a href="#page_section_5">使用语言包</a></p>
+<ul class="TableOfContents">
+<li>
+<p><a href="#page_section_6">语言包配置</a></p>
+<ul class="TableOfContents">
+<li>
+<p><a href="#page_section_7">主包覆盖特性</a></p>
+</li>
+</ul>
+</li>
+<li>
+<p><a href="#page_section_8">使用翻译</a></p>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="page_Hook">Hook机制</h1>
+<p>Hook机制在combi框架中提供了一个轻量级的事件系统。一个Hook由以下部分组成：</p>
+<ul>
+<li>Hook名</li>
+<li>注册Hook触发函数taker</li>
+<li>添加Hook调用函数handler</li>
+<li>Hook触发点</li>
+</ul>
+<h2 id="page_Hook-2">注册一个Hook</h2>
+<p>注册一个hook首先要给hook起个名字，一般的话会以包名加冒号做前缀，类似这样<code>core:</code>，后面跟上具体的勾子名。</p>
+<p>同时，也建议给hook名定义一个常量，以便于在代码中调用：</p>
+<pre><code class="language-php">namespace MyZone;
+
+const HOOK_CRASH = 'myzone:crash';
+</code></pre>
+<p>之后需要把这个hook注册到hook系统中，并为其设置taker函数。幸运的是，hook系统提供了一个默认的taker函数，对于普通的，对输入和返回没有特别要求的hook，可以省略taker函数：</p>
+<pre><code class="language-php">$hook = rt::core()-&gt;hook();
+$hook-&gt;add(HOOK_CRASH);
+</code></pre>
+<p><code>rt::core()-&gt;hook()</code>会返回hook对象，而<code>add()</code>方法则是将此hook名注册到系统中，并生成一个默认的taker。</p>
+<h3 id="page_Hook-2">Hook描述文件</h3>
+<p>推荐将hook相关的描述文件（注册，添加等操作）写在<code>src/hooks.php</code>中，并在bootstrap.php中注册包调用rt::register方法时，将<code>hooks</code>添加在参数中载入：</p>
+<pre><code class="language-php">rt::register(Package::instance(__DIR__),
+    'dependencies', 'helpers', 'hooks');
+</code></pre>
+<h2 id="page_Hook-2">设置Hook触发点</h2>
+<p>使用<code>take()</code>方法触发勾子。</p>
+<pre><code class="language-php">rt::core()-&gt;hook()-&gt;take(\MyZone\HOOK_CRASH);
+</code></pre>
+<p>该操作会使得添加到该hook中的handler被taker函数调用。</p>
+<h2 id="page_Hookhandler">添加Hook调用handler</h2>
+<p>推荐在<code>src/hooks.php</code>中添加handler函数。</p>
+<pre><code class="language-php">$hook = rt::core()-&gt;hook();
+$hook-&gt;attach(HOOK_CRASH, function() {
+    echo 'crashed!';
+});
+</code></pre>
+<p>当该hook被take时，会输出<code>&quot;crashed!&quot;</code>。当勾子要处理的逻辑较为复杂，需要通过一个对象来解决时，也可以通过实现<code>__invoke()</code>方法传一个对象作为handler。</p>
+<p>下面用匿名对象作为handler添加到退出hook中作为演示：</p>
+<pre><code class="language-php">$hook-&gt;attach(\Combi\HOOK_SHUTDOWN, new class {
+    public function __invoke() {
+        echo 'halted.';
+    }
+});
+</code></pre>
+<h2 id="page_taker">勾子参数传递和自定义taker</h2>
+<p>勾子在触发时可以传递参数，并被所有handler所接收：</p>
+<pre><code class="language-php">const HOOK_CRASH = 'myzone:crash';
+
+$hook = rt::core()-&gt;hook();
+$hook-&gt;add(HOOK_CRASH);
+
+$hook-&gt;attach(HOOK_CRASH, function(int $user_id, string $nickname) {
+    echo &quot;user#$use_id $nickname crashed!&quot;;
+});
+
+$hook-&gt;take(HOOK_CRASH, $user_id, $nickname);
+</code></pre>
+<p><code>take()</code>方法可以传递多个参数，除了第一个参数hook名外，后面的参数都会传递给handler。</p>
+<p>默认的taker函数是不支持handler返回的，也不会对handler的返回值进行判断。如果你需要一个带参数返回，并且希望支持多个handler处理时中断的，可以在注册Hook时自定义taker函数：</p>
+<pre><code class="language-php">const HOOK_CRASH = 'myzone:crash';
+
+$hook = rt::core()-&gt;hook();
+$hook-&gt;add(HOOK_CRASH, function(array $handlers, ...$args): bool {
+    foreach ($handlers as $handler) {
+        if (!$handler(...$args)) {
+            return false;
+        }
+    }
+    return true;
+});
+
+$hook-&gt;attach(HOOK_CRASH, function(int $user_id): bool {
+    return $user_id == 0 ? false : true;
+});
+
+$hook-&gt;attach(HOOK_CRASH, function(int $user_id): bool {
+    echo &quot;user#$use_id crashed!&quot;;
+    return true;
+});
+
+$user_id = 0;
+if (!$hook-&gt;take(HOOK_CRASH, $user_id)) {
+    throw abort::runtime('system is crash');
+}
+</code></pre>
+<p>如上所示，crash勾子中添加了2个handler，当user_id=0时，第一个勾子会中断触发的taker行为，并将返回的false在take()中返回，不会执行到第二个hander。</p>
+<blockquote>
+<p>建议taker函数以return一个值退出，如果没有数据需要返回，那也可以return null</p>
+</blockquote>
+<h2 id="page_Core">Core包勾子列表</h2>
+<table>
+<thead>
+<tr>
+<th>勾子名</th>
+<th>触发点</th>
+<th>参数与返回</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>\Combi\HOOK_READY</code></td>
+<td><code>rt::ready()</code>调用后</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\Combi\HOOK_TICK</code></td>
+<td>每个步进处理，每个action都会触发</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\Combi\HOOK_SHUTDOWN</code></td>
+<td>应用进程退出时</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\Combi\HOOK_REDIS_UP</code></td>
+<td>Redis启动时</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\Combi\HOOK_ACTION_BEGIN</code></td>
+<td>action开始</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\Combi\HOOK_ACTION_END</code></td>
+<td>action结束</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\Combi\HOOK_ACTION_BROKE</code></td>
+<td>action意外结束</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="page_section_5">使用语言包</h1>
+<p>框架自带的语言包继承于配置系统，通过包对象Package调用。</p>
+<h2 id="page_section_6">语言包配置</h2>
+<p>语言包配置目录在<code>src/i18n</code>目录，根据Core包配置<code>settings.neon</code>中的<code>locale</code>的值确定子目录。如果<code>locale='zh_CN.utf8'</code>，那么语言包地址即为：<code>src/i18n/zh_CN.utf8</code></p>
+<p>语言包文件采用neon格式，当然这里实际上只用到了yaml语法，建议使用单层key:value结构进行描述。例如创建文件<code>src/i18n/zh_CN.utf8/user.neon</code>：</p>
+<pre><code class="language-neon">welcome:    欢迎！
+nickname:   昵称
+</code></pre>
+<h3 id="page_section_7">主包覆盖特性</h3>
+<p>因为基于配置系统实现，所以语言包支持主包覆盖配置。比如在主包中想覆盖<code>pid=user</code>包中的user.neon，可以创建<code>src/i18n/zh_CN.utf8/user/user.neon</code>进行整个替换。</p>
+<h2 id="page_section_8">使用翻译</h2>
+<p>有了配置后，调用包对象的<code>dict()</code>方法可获取翻译结果。比如假设以下使用MyZone包的翻译：</p>
+<pre><code class="language-php">echo rt::myZone()-&gt;dict('user', 'welcome'); // print 欢迎！
+</code></pre>
+<p><code>dict()</code>方法支持传递多个参数对翻译的词条中的占位符进行替换。这里用到的是sprintf函数，所以welcome词条可以写成这样：</p>
+<pre><code class="language-neon">welcome:    欢迎！%s
+</code></pre>
+<p>调用改为：</p>
+<pre><code class="language-php">$nickname = 'Andares';
+echo rt::myZone()-&gt;dict('user', 'welcome', $nickname); // print 欢迎！Andares
+</code></pre>
+    </div>
+
+        <nav>
+        <ul class="Pager">
+            <li class=Pager--prev><a href="../框架基础/调试与日志.html">Previous</a></li>            <li class=Pager--next><a href="../框架基础/通用中间件.html">Next</a></li>        </ul>
+    </nav>
+    </article>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+    <!-- jQuery -->
+    <script src="../themes/daux/js/jquery-1.11.3.min.js"></script>
+
+    <!-- hightlight.js -->
+    <script src="../themes/daux/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <!-- JS -->
+    
+    <script src="../themes/daux/js/daux.js"></script>
+
+            <!-- Tipue Search -->
+        <script type="text/javascript" src="../tipuesearch/tipuesearch.js"></script>
+
+        <script>
+            window.onunload = function(){}; // force $(document).ready to be called on back/forward navigation in firefox
+            $(function() {
+                tipuesearch({
+                    'base_url': '../'
+                });
+            });
+        </script>
+    
+</body>
+</html>
