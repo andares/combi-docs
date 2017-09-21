@@ -45,7 +45,7 @@
 
         <div class="Collapsible__content">
             <!-- Navigation -->
-            <ul class='Nav'><li class='Nav__item '><a href="../Get_Started.html">Get Started</a></li><li class='Nav__item Nav__item--open has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>框架基础</a><ul class='Nav'><li class='Nav__item '><a href="../框架基础/基础结构.html">基础结构</a></li><li class='Nav__item Nav__item--active'><a href="../框架基础/配置系统.html">配置系统</a></li><li class='Nav__item '><a href="../框架基础/调试与日志.html">调试与日志</a></li><li class='Nav__item '><a href="../框架基础/勾子与语言包.html">勾子与语言包</a></li><li class='Nav__item '><a href="../框架基础/通用中间件.html">通用中间件</a></li><li class='Nav__item '><a href="../框架基础/Meta组件.html">Meta组件</a></li><li class='Nav__item '><a href="../框架基础/小工具.html">小工具</a></li></ul></li><li class='Nav__item  has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Web模块</a><ul class='Nav'><li class='Nav__item '><a href="../Web模块/入口.html">入口</a></li><li class='Nav__item '><a href="../Web模块/HTTP消息.html">HTTP消息</a></li><li class='Nav__item '><a href="../Web模块/控制器与路由.html">控制器与路由</a></li><li class='Nav__item '><a href="../Web模块/中间件.html">中间件</a></li><li class='Nav__item '><a href="../Web模块/模版.html">模版</a></li><li class='Nav__item '><a href="../Web模块/协议与错误处理.html">协议与错误处理</a></li><li class='Nav__item '><a href="../Web模块/会话与日志.html">会话与日志</a></li><li class='Nav__item '><a href="../Web模块/测试.html">测试</a></li></ul></li><li class='Nav__item  has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>业务实践</a><ul class='Nav'><li class='Nav__item '><a href="../业务实践/选择合适的Access.html">选择合适的Access</a></li><li class='Nav__item '><a href="../业务实践/系统发布与环境配置.html">系统发布与环境配置</a></li></ul></li></ul>
+            <ul class='Nav'><li class='Nav__item '><a href="../Get_Started.html">Get Started</a></li><li class='Nav__item Nav__item--open has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>框架基础</a><ul class='Nav'><li class='Nav__item '><a href="../框架基础/基础结构.html">基础结构</a></li><li class='Nav__item Nav__item--active'><a href="../框架基础/配置系统.html">配置系统</a></li><li class='Nav__item '><a href="../框架基础/调试与日志.html">调试与日志</a></li><li class='Nav__item '><a href="../框架基础/勾子与语言包.html">勾子与语言包</a></li><li class='Nav__item '><a href="../框架基础/通用中间件.html">通用中间件</a></li><li class='Nav__item '><a href="../框架基础/使用Redis.html">使用Redis</a></li><li class='Nav__item '><a href="../框架基础/Action机制.html">Action机制</a></li><li class='Nav__item '><a href="../框架基础/应用框架.html">应用框架</a></li><li class='Nav__item '><a href="../框架基础/Meta组件.html">Meta组件</a></li><li class='Nav__item '><a href="../框架基础/小工具.html">小工具</a></li></ul></li><li class='Nav__item  has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Web模块</a><ul class='Nav'><li class='Nav__item '><a href="../Web模块/入口.html">入口</a></li><li class='Nav__item '><a href="../Web模块/HTTP消息.html">HTTP消息</a></li><li class='Nav__item '><a href="../Web模块/控制器与路由.html">控制器与路由</a></li><li class='Nav__item '><a href="../Web模块/中间件.html">中间件</a></li><li class='Nav__item '><a href="../Web模块/模版.html">模版</a></li><li class='Nav__item '><a href="../Web模块/协议与错误处理.html">协议与错误处理</a></li><li class='Nav__item '><a href="../Web模块/会话与日志.html">会话与日志</a></li><li class='Nav__item '><a href="../Web模块/测试.html">测试</a></li></ul></li></ul>
 
             <div class="Links">
                 
@@ -116,6 +116,48 @@
 </li>
 <li>
 <p><a href="#page_section_14">配置文件缓存</a></p>
+</li>
+</ul>
+</li>
+<li>
+<p><a href="#page_section_15">配置方法</a></p>
+<ul class="TableOfContents">
+<li>
+<p><a href="#page_section_16">使用配置方法</a></p>
+</li>
+<li>
+<p><a href="#page_section_17">内置方法</a></p>
+<ul class="TableOfContents">
+<li>
+<p><a href="#page_env">$env</a></p>
+</li>
+<li>
+<p><a href="#page_constant">$constant</a></p>
+</li>
+<li>
+<p><a href="#page_section_20">创建对象</a></p>
+</li>
+</ul>
+</li>
+<li>
+<p><a href="#page_section_21">方法的嵌套使用</a></p>
+</li>
+<li>
+<p><a href="#page_section_22">构造器</a></p>
+</li>
+<li>
+<p><a href="#page_section_23">扩展配置方法</a></p>
+<ul class="TableOfContents">
+<li>
+<p><a href="#page_section_24">创建配置方法类</a></p>
+</li>
+<li>
+<p><a href="#page_Config">注册进Config类</a></p>
+</li>
+<li>
+<p><a href="#page_section_26">在配置中使用</a></p>
+</li>
+</ul>
 </li>
 </ul>
 </li>
@@ -249,6 +291,199 @@ prod &lt; user:
 <blockquote>
 <p>combi提供的命令行工具有提供相关的维护脚本，可移步相关章节了解。</p>
 </blockquote>
+<h1 id="page_section_15">配置方法</h1>
+<p>框架约定在配置中的字段名以<code>$</code>起始的为配置方法名。配置方法是一系列可扩展的在配置中使用的函数，可以让配置变得更为灵活。</p>
+<blockquote>
+<p>配置方法虽然可以赋于配置文件动态特性，但请仍然将其理解为静态的。配置方法在第一次解析配置时被处理，之后返回固定的处理代码。</p>
+</blockquote>
+<h2 id="page_section_16">使用配置方法</h2>
+<p>让我们从一个简单的问题开始，如果需要在配置中描述某个项目内的路径，怎么做？在使用配置方法之前，必须在使用配置的地方编码才能实现。在一些系统中，会提供一些配置变量，以供引用某些相对路径。</p>
+<p>在Combi的配置中，我们可以使用<code>$path</code>配置方法来直接获取想要的项目内路径，假设下面的配置位于主包的<code>test.neon</code>配置中：</p>
+<pre><code class="language-neon">mydir:
+    $path:
+        path:       config/cache
+        category:   tmp
+</code></pre>
+<p>上面的配置中，指定了为mydir这个键应用<code>$path</code>配置方法来生成值。调用$path时给了2个参数，path参数描述了相对路径，而category参数则指定了使用<code>Package::path()</code>方法获取的路径前缀分类。这样，当最终调用mydir时<code>rt::main()-&gt;config('test')-&gt;mydir</code>，取得的是主包目录下的<code>tmp/config/cache</code>的绝对路径。</p>
+<p>使用时你也可以指定包名：</p>
+<pre><code class="language-neon">mydir:
+    $path:
+        path:       bootstrap.php
+        category:   src
+        pid:        core
+</code></pre>
+<p>像上面这样，获取到的是core包下（通常是在项目vendor目录下）的<code>src/bootstrap.php</code>该文件的绝对路径。</p>
+<p>如果路径的目标是一个目录，可以设置自动创建：</p>
+<pre><code class="language-neon">mydir:
+    $path:
+        path:       config/cache
+        category:   tmp
+        autoCreate: true
+</code></pre>
+<blockquote>
+<p>注意以下几点：</p>
+<ol>
+<li>配置方法名必须是键名，不能是键值。</li>
+<li>配置方法的返回结果必然应用在其上级键值中。</li>
+<li>一个键中只能应用一个配置方法，并列多个配置方法只有第一个生效。</li>
+</ol>
+</blockquote>
+<h2 id="page_section_17">内置方法</h2>
+<p>除了上面介绍的<code>$path</code>外，框架还内置了其他一些配置方法。</p>
+<h3 id="page_env">$env</h3>
+<p>获取<code>env.php</code>中定义的字段，以下配置给scene赋值等同于<code>rt::env('scene')</code>：</p>
+<pre><code class="language-neon">scene:
+    $env: scene
+</code></pre>
+<h3 id="page_constant">$constant</h3>
+<p>获取常量可以使用<code>$constant</code>方法：</p>
+<pre><code class="language-neon">phpVersion:
+    $constant:  PHP_VERSION
+</code></pre>
+<p>这样<code>phpVersion</code>字段就等同于<code>PHP_VERSION</code>常量了。</p>
+<p>如果常量是一个数组，要取其某个键值，可以这样写：</p>
+<pre><code class="language-neon">logLevel:
+    $constant: Combi\Core\Logger::LEVELS(info)
+</code></pre>
+<p>注意尽管上面用到了neon的Entity格式，但因为是取数组键值，所以括号内只能有一个参数。</p>
+<h3 id="page_section_20">创建对象</h3>
+<p>创建对象有两个方法<code>$instance</code>和<code>$make</code>，效果与调用<code>helper::instance()</code>和<code>helper::make()</code>一致。</p>
+<p>两者的用法也完全相同，区别主要是<code>$instance</code>会检查类是否拥有<code>instance()</code>这个静态方法，有的话会调用该方法获取对象。在某些情况下会获取单件实例。而<code>$make</code>则是完全新建。</p>
+<pre><code class="language-neon">date:
+    $make:  Combi\Core\Utils\DateTime(now)
+</code></pre>
+<p>以上配置取date会得到一个DateTime对象。上面在创建对象时还给了第一个参数<code>'now'</code>，如果不写参数也是没问题的，把<code>(now)</code>这部分移除只写类名即可。这个方法也可以写成下面这样，但建议仅在嵌套配置方法时使用：</p>
+<pre><code class="language-neon">date:
+    $make:
+        class:  Combi\Core\Utils\DateTime
+        params: (now)
+</code></pre>
+<p>上面这种写法<code>params</code>中如果有多个参数，可以写成<code>(p1,p2, p3)</code>这种形式，自然序列数组也是支持的，但不能是带key的字典形式。</p>
+<h2 id="page_section_21">方法的嵌套使用</h2>
+<p>配置方法可以被嵌套使用，假设我们要在配置中创建一个Monolog的StreamHandler：</p>
+<pre><code class="language-neon">handler:
+    $make:
+        class:  Monolog\Handler\StreamHandler
+        params:
+            -
+                $path:
+                    path:     my.log
+                    category: logs
+</code></pre>
+<p>StreamHandler的构造器第一个参数接收日志文件路径，而我们通过第二种<code>$make</code>的调用方式，对params数组中第一个参数应用<code>$path</code>方法，这样当执行<code>$make</code>的时候就可以获取到正确的路径。</p>
+<p>除了在Entity结构中（即小括号内）的<code>$</code>不会被解析，标准Yaml格式的键都可以使用配置方法。</p>
+<h2 id="page_section_22">构造器</h2>
+<p>构造器是目前支持最复杂也是除<code>$path</code>外最有用的配置方法。构造器方法可以在配置文件中完整拼装出所需要的对象。</p>
+<pre><code class="language-neon">date:
+    $constructor:
+        new:  Combi\Core\Utils\DateTime(now)
+</code></pre>
+<p>上面是<code>$constructor</code>方法最简单的使用方法，在这种用法下他和<code>$make</code>非常相似，事实上作用也是相同的。但是当需要在构造时给予更复杂的参数时，构造器的优势就体现出来了：</p>
+<pre><code class="language-neon">handler1:
+    $constructor:
+        new:  Monolog\Handler\RotatingFileHandler(
+            filename, 0, level)
+        parameters:
+            filename:
+                $path:
+                    path:       combi.log
+                    category:   logs
+            level:
+                $constant: Combi\Core\Logger::LEVELS(info)
+</code></pre>
+<p>以上代码取自core包中的日志配置部分。与之前的相比，增加了<code>parameters</code>参数。构造器的<code>parameters</code>参数定义了一系列<strong>变量</strong>，在<code>new</code>参数中用Entity结构描述构造参数时，会优先搜索<code>parameters</code>中有没有定义该变量名，如有的话会使用定义变量的值代替。例如在这里<code>filename</code>和<code>level</code>就使用<code>parameters</code>中的定义代替了。</p>
+<p>使用<code>parameters</code>有以下好处：</p>
+<ol>
+<li>可以将构造对象时的重要参数提取出了，统一设置。</li>
+<li>可以充分利用配置方法嵌套的功能实现相对动态的配置，甚至嵌套构造器。</li>
+<li>可以利用配置场景功能，在程序代码中无感知地在不同环境间切换。</li>
+</ol>
+<p>对于一部分需要通过方法而不能在类构造方法中实现的初始化需求，构造器提供了<code>initialize</code>关键字，在创建完对象后会依次调用。在<code>initialize</code>中描述的Entity属性，也会优先查找<code>parameters</code>中的定义变量。</p>
+<pre><code class="language-neon">handler1:
+    $constructor:
+        new:  Monolog\Handler\RotatingFileHandler(
+            filename, 0, level)
+        parameters:
+            filename:
+                $path:
+                    path:       combi.log
+                    category:   logs
+            level:
+                $constant: Combi\Core\Logger::LEVELS(info)
+            formatter:
+              $make:  Monolog\Formatter\JsonFormatter()
+        initialize:
+            - setFormatter(formatter)
+</code></pre>
+<p>像上面这样，在<code>parameters</code>中创建了JsonFormatter对象并赋给formatter变量，并在<code>initialize</code>中调用<code>setFormatter()</code>对象时作为参数引用。</p>
+<p>关于构造器方法的详细使用范例，core包中的默认<code>logger.neon</code>配置文件会是很好的参考。</p>
+<h2 id="page_section_23">扩展配置方法</h2>
+<p>要扩展自己的配置方法，遵循以下步骤：</p>
+<ol>
+<li>创建配置方法类，需要继承于<code>Combi\Core\Config\Method</code>。</li>
+<li>将类所在命名空间注册进<code>Combi\Core\Config</code>中。</li>
+<li>在配置中使用。</li>
+</ol>
+<h3 id="page_section_24">创建配置方法类</h3>
+<p>这里假设创建一个名为<code>$switchCase</code>的配置方法，这个方法可以接收一个参数，默认情况下将其转为首字母大写。也可以接收多个参数，指定转为全大写或全小写。</p>
+<pre><code class="language-php">namespace App\Config\Methods;
+
+use Combi\{
+    Helper as helper,
+    Abort as abort,
+    Core,
+    Runtime as rt
+};
+
+use Nette\Neon\Entity;
+
+class SwitchCase extends Core\Config\Method
+{
+    protected $text;
+    protected $turnTo = 'words';
+
+    public function __invoke() {
+        if ($text = $this-&gt;getValue()) {
+            return ucwords($text);
+        }
+        switch ($this-&gt;turnTo) {
+            case 'lower':
+                return strtolower($this-&gt;text);
+            case 'upper':
+                return strtoupper($this-&gt;text);
+        }
+        return ucwords($this-&gt;text);
+    }
+}
+</code></pre>
+<h3 id="page_Config">注册进Config类</h3>
+<p>目前的注册机制比较简单，调用<code>Combi\Core\Config::appendMethodSpaces()</code>方法即可。因为该功能较为底层，所以建议在<code>bootstrap.php</code>文件中的<code>rt::register()</code>调用之后注册较为可靠。</p>
+<p>比如在上文中所述的App包中的<code>bootstrap.php</code>末尾加入：</p>
+<pre><code class="language-php">\Combi\Core\Config::appendMethodSpaces('App\\Config\\Methods');
+</code></pre>
+<h3 id="page_section_26">在配置中使用</h3>
+<pre><code class="language-neon">ucwords:
+    $switchCase:    show me the money.  # ucwords='Show Me The Money.'
+
+lower:
+    $switchCase:                        # lower='php is best.'
+        text:   PHP is Best.
+        turnTo: lower
+
+upper:
+    $switchCase:                        # lower='PHP IS BEST.'
+        text:   PHP is Best.
+        turnTo: upper
+</code></pre>
+<p>解释一下几个要点：</p>
+<ul>
+<li>继承<code>Combi\Core\Config\Method</code>后，需要实现<code>__invoke()</code>方法。</li>
+<li>
+<code>__invoke</code>方法无参数，返回值将替换应用配置方法的键值。</li>
+<li>在invoke方法中，<code>$this-&gt;getValue()</code>将获取直接定义，单数组/字典结构的配置值，如上述用例中的第一种情况。</li>
+<li>类似上述后二种情况，<code>$this-&gt;getValue()</code>将返回<code>null</code>，而字典中的键值会被赋入对象的属性。</li>
+<li>只有在配置中列出的键值会被赋值进对象属性，所以可以为定义的属性设置默认值。</li>
+</ul>
 <h1 id="page_Core">Core包基础配置</h1>
 <p>当前Core包拥有以下配置：</p>
 <table>
