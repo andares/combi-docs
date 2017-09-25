@@ -314,6 +314,36 @@ class Person extends Core\Meta\Struct {
 }
 ```
 
+## 可选字段
+
+在某些情况下，需要接收一些可选字段，这些字段如果未接收到，则为```null```，但又不需要为这些字段定义confirm勾子方法。
+
+这时可以设置可选字段```static $_optional```，设置为可选的字段在confirm时为```null```时**不报错**：
+
+```php
+use Combi\Core;
+
+/**
+ *
+ * @property string $name
+ * @property int $age
+ * @property int gender
+ */
+class Person extends Core\Meta\Struct {
+    protected static $_defaults = [
+        'name'          => null,
+        'father'        => '',
+        'age'           => 18,
+        'gender'        => 0,
+        'is_married'    => null,
+    ];
+
+    protected static $_optional = [
+        'is_married'    => 1,
+    ];
+}
+```
+
 ## 与Collection类似的方法
 
 * set()
