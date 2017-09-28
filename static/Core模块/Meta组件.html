@@ -101,6 +101,9 @@
 </li>
 </ul>
 </li>
+<li>
+<p><a href="#page_Container-Trait">Container Trait</a></p>
+</li>
 </ul>
 </li>
 <li>
@@ -118,7 +121,7 @@
 </ul>
 </li>
 <li>
-<p><a href="#page_section_11">结构迁移</a></p>
+<p><a href="#page_section_12">结构迁移</a></p>
 <ul class="TableOfContents">
 <li>
 <p><a href="#page_deprecated">deprecated字段的行为</a></p>
@@ -137,7 +140,7 @@
 </ul>
 </li>
 <li>
-<p><a href="#page_section_14">可选字段</a></p>
+<p><a href="#page_null">允许null字段</a></p>
 </li>
 <li>
 <p><a href="#page_Collection-2">与Collection类似的方法</a></p>
@@ -188,7 +191,7 @@
 <p>在Combi中，我们提供了Meta对象，用于实现操作一组数据的常用方法。在核心包提供的功能中，如通讯的消息体、数据模型等，都会用到Meta对象。</p>
 <p>Meta提供的基础类有<code>Collection</code>和<code>Struct</code>两种，前者是一个列表或是一个动态的结构体，后者为一个确定的结构体。同时为其提供了一系列Interfaces和Traits，可便捷统一地实现例如序列化，结构定义和检查等功能。</p>
 <h1 id="page_Collection">Collection基类</h1>
-<p>Collection基类位于<code>Combi\Core\Meta\Collection</code>，提供了一个列表式的可伸缩数据集合，也可以使用字串键值用作key/value结构存储。<code>Combi\Core\Meta\Container</code>是collection的别名，Combi中的很多容器类对象都继承自Collection基类。</p>
+<p>Collection基类位于<code>Combi\Core\Meta\Collection</code>，提供了一个列表式的可伸缩数据集合，也可以使用字串键值用作key/value结构存储。</p>
 <h2 id="page_Collection-2">创建自己的Collection类</h2>
 <pre><code class="language-php">use Combi\Core;
 
@@ -243,6 +246,11 @@ $collection-&gt;replace($items);
 }
 </code></pre>
 <p>此方法等同于调用了<code>iterate()</code>方法，和toArray()不同。</p>
+<h2 id="page_Container-Trait">Container Trait</h2>
+<p><code>Combi\Core\Meta\Container</code>是collection的功能的<code>trait</code>实现，在不方便使用继承的情况下可以使用<code>use \Combi\Core\Meta\Container</code>实现容器功能。</p>
+<blockquote>
+<p>注意，如果仅使用<code>use Container</code>的形式实现容器类，建议加入<code>implements \Combi\Core\Interfaces\Collection, \IteratorAggregate</code>声明。</p>
+</blockquote>
 <h1 id="page_Struct">Struct基类</h1>
 <p>Struct基类位于<code>Combi\Core\Meta\Struct</code>，提供一个确定的、具有自检特性的key/value数据结构。</p>
 <h2 id="page_Struct-2">创建自己的Struct</h2>
@@ -276,7 +284,7 @@ class Person extends Core\Meta\Struct {
 <pre><code class="language-php">var_dump(Person::defaults());
 </code></pre>
 <p>以上代码会输出<code>$_defaults</code>属性内容。</p>
-<h2 id="page_section_11">结构迁移</h2>
+<h2 id="page_section_12">结构迁移</h2>
 <p>Struct的结构迁移基于deprecated配置，迁移一个结构体的规则如下：</p>
 <ul>
 <li>新增字段（属性）时，在<code>$_defaults</code>的数组末尾添加。
@@ -427,9 +435,9 @@ class Person extends Core\Meta\Struct {
     }
 }
 </code></pre>
-<h2 id="page_section_14">可选字段</h2>
+<h2 id="page_null">允许null字段</h2>
 <p>在某些情况下，需要接收一些可选字段，这些字段如果未接收到，则为<code>null</code>，但又不需要为这些字段定义confirm勾子方法。</p>
-<p>这时可以设置可选字段<code>static $_optional</code>，设置为可选的字段在confirm时为<code>null</code>时<strong>不报错</strong>：</p>
+<p>这时可以设置可选字段<code>static $_nullable</code>，设置为可选的字段在confirm时为<code>null</code>时<strong>不报错</strong>：</p>
 <pre><code class="language-php">use Combi\Core;
 
 /**
@@ -447,7 +455,7 @@ class Person extends Core\Meta\Struct {
         'is_married'    =&gt; null,
     ];
 
-    protected static $_optional = [
+    protected static $_nullable = [
         'is_married'    =&gt; 1,
     ];
 }
@@ -543,6 +551,9 @@ $person-&gt;fill([
 <p>使用此类时，建议同时<code>implement Combi\Core\Interfaces\Arrayable</code>。如果Meta对象中包括的字段同样实现了Arrayable接口，也会被调用转为数组。</p>
 <pre><code class="language-php">$arr = $person-&gt;toArray();
 </code></pre>
+<blockquote>
+<p>注意，此方法会移除值为null的字段。</p>
+</blockquote>
 <h2 id="page_JsonSerializable">JsonSerializable</h2>
 <p>提供json序列化的相关方法。Collection和Struct基类已经支持。</p>
 <p>用法：</p>

@@ -8,7 +8,7 @@ Meta提供的基础类有```Collection```和```Struct```两种，前者是一个
 
 # Collection基类
 
-Collection基类位于```Combi\Core\Meta\Collection```，提供了一个列表式的可伸缩数据集合，也可以使用字串键值用作key/value结构存储。```Combi\Core\Meta\Container```是collection的别名，Combi中的很多容器类对象都继承自Collection基类。
+Collection基类位于```Combi\Core\Meta\Collection```，提供了一个列表式的可伸缩数据集合，也可以使用字串键值用作key/value结构存储。
 
 ## 创建自己的Collection类
 
@@ -92,6 +92,12 @@ foreach ($collection as $key => $value) {
 ```
 
 此方法等同于调用了```iterate()```方法，和toArray()不同。
+
+## Container Trait
+
+```Combi\Core\Meta\Container```是collection的功能的```trait```实现，在不方便使用继承的情况下可以使用```use \Combi\Core\Meta\Container```实现容器功能。
+
+>   注意，如果仅使用```use Container```的形式实现容器类，建议加入```implements \Combi\Core\Interfaces\Collection, \IteratorAggregate```声明。
 
 # Struct基类
 
@@ -314,11 +320,11 @@ class Person extends Core\Meta\Struct {
 }
 ```
 
-## 可选字段
+## 允许null字段
 
 在某些情况下，需要接收一些可选字段，这些字段如果未接收到，则为```null```，但又不需要为这些字段定义confirm勾子方法。
 
-这时可以设置可选字段```static $_optional```，设置为可选的字段在confirm时为```null```时**不报错**：
+这时可以设置可选字段```static $_nullable```，设置为可选的字段在confirm时为```null```时**不报错**：
 
 ```php
 use Combi\Core;
@@ -338,7 +344,7 @@ class Person extends Core\Meta\Struct {
         'is_married'    => null,
     ];
 
-    protected static $_optional = [
+    protected static $_nullable = [
         'is_married'    => 1,
     ];
 }
@@ -465,6 +471,8 @@ foreach ($person as $key => $value) {
 ```php
 $arr = $person->toArray();
 ```
+
+>   注意，此方法会移除值为null的字段。
 
 ## JsonSerializable
 

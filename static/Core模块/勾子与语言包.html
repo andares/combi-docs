@@ -207,44 +207,44 @@ if (!$hook-&gt;take(HOOK_CRASH, $user_id)) {
 <tr>
 <th>勾子名</th>
 <th>触发点</th>
-<th>参数与返回</th>
+<th>参数</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>\Combi\HOOK_READY</code></td>
 <td><code>rt::ready()</code>调用后</td>
-<td></td>
+<td>无参数</td>
 </tr>
 <tr>
 <td><code>\Combi\HOOK_TICK</code></td>
 <td>每个步进处理，每个action都会触发</td>
-<td></td>
+<td>无参数</td>
 </tr>
 <tr>
 <td><code>\Combi\HOOK_SHUTDOWN</code></td>
 <td>应用进程退出时</td>
-<td></td>
+<td>无参数</td>
 </tr>
 <tr>
 <td><code>\Combi\HOOK_REDIS_UP</code></td>
 <td>Redis启动时</td>
-<td></td>
+<td><code>\Redis $redis</code>, <code>string $configName</code></td>
 </tr>
 <tr>
 <td><code>\Combi\HOOK_ACTION_BEGIN</code></td>
 <td>action开始</td>
-<td></td>
+<td><code>Combi\Core\Action $action</code></td>
 </tr>
 <tr>
 <td><code>\Combi\HOOK_ACTION_END</code></td>
 <td>action结束</td>
-<td></td>
+<td><code>mixed $result</code>, <code>Combi\Core\Action $action</code></td>
 </tr>
 <tr>
-<td><code>\Combi\HOOK_ACTION_BROKE</code></td>
+<td><code>\Combi\HOOK_ACTION_BROKEN</code></td>
 <td>action意外结束</td>
-<td></td>
+<td><code>\Throwable $e</code>, <code>Combi\Core\Action $action</code></td>
 </tr>
 </tbody>
 </table>

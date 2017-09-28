@@ -144,18 +144,26 @@
 </li>
 <li>
 <p><a href="#page_section_22">构造器</a></p>
-</li>
-<li>
-<p><a href="#page_section_23">扩展配置方法</a></p>
 <ul class="TableOfContents">
 <li>
-<p><a href="#page_section_24">创建配置方法类</a></p>
+<p><a href="#page_take">take参数</a></p>
+</li>
+<li>
+<p><a href="#page_init">init参数</a></p>
+</li>
+</ul>
+</li>
+<li>
+<p><a href="#page_section_25">扩展配置方法</a></p>
+<ul class="TableOfContents">
+<li>
+<p><a href="#page_section_26">创建配置方法类</a></p>
 </li>
 <li>
 <p><a href="#page_Config">注册进Config类</a></p>
 </li>
 <li>
-<p><a href="#page_section_26">在配置中使用</a></p>
+<p><a href="#page_section_28">在配置中使用</a></p>
 </li>
 </ul>
 </li>
@@ -214,6 +222,30 @@ $env = rt::env(); // get all env data
 <p>除了少量的环境配置外，主要的配置文件应该使用框架提供的配置系统实现。</p>
 <h2 id="page_section_8">配置格式</h2>
 <p>combi使用了Nette框架提供的neon格式，与yaml非常类似。</p>
+<p>neon格式与yaml最大的不同，是多出了被称为Entity的语法。即你可以定义一个值为<code>&lt;Value&gt;([...&lt;attributes&gt;])</code>，最终会将其解析为一个Entity对象，其拥有属性<code>value</code>和<code>attributes</code>，分别对应括号前和括号内的内容。</p>
+<p>例如：</p>
+<pre><code class="language-neon">myentity:
+    Test(&quot;let's go!&quot;, 100, abc)
+</code></pre>
+<p>myentity会被解析为Entity对象，对象属性<code>value='Test'</code>，属性attributes是一个自然数组：</p>
+<pre><code class="language-php">[
+    &quot;let's go!&quot;,
+    100,
+    'abc',
+]
+</code></pre>
+<p>如果需要指定attributes的key，可以使用等号：</p>
+<pre><code class="language-neon">myentity:
+    Test(words=&quot;let's go!&quot;, max=100, abc)
+</code></pre>
+<p>这样attributes会是：</p>
+<pre><code class="language-php">[
+    'words' =&gt; &quot;let's go!&quot;,
+    'max'   =&gt; 100,
+    0       =&gt; 'abc',
+]
+
+</code></pre>
 <h2 id="page_section_9">目录与文件结构</h2>
 <p>combi以包为单位管理代码，所以每个包有独立的配置文件。一般情况下包的配置文件均放在<code>src/config</code>目录下，为单层目录结构。比如：</p>
 <pre><code>src/config/settings.neon
@@ -356,9 +388,9 @@ prod &lt; user:
 <pre><code class="language-neon">date:
     $make:
         class:  Combi\Core\Utils\DateTime
-        params: (now)
+        params: [now]
 </code></pre>
-<p>上面这种写法<code>params</code>中如果有多个参数，可以写成<code>(p1,p2, p3)</code>这种形式，自然序列数组也是支持的，但不能是带key的字典形式。</p>
+<p>上面这种写法<code>params</code>中如果有多个参数，可以写成<code>[p1,p2, p3]</code>这种形式，自然序列数组也是支持的，但不能是带key的字典形式。</p>
 <h2 id="page_section_21">方法的嵌套使用</h2>
 <p>配置方法可以被嵌套使用，假设我们要在配置中创建一个Monolog的StreamHandler：</p>
 <pre><code class="language-neon">handler:
@@ -373,58 +405,87 @@ prod &lt; user:
 <p>StreamHandler的构造器第一个参数接收日志文件路径，而我们通过第二种<code>$make</code>的调用方式，对params数组中第一个参数应用<code>$path</code>方法，这样当执行<code>$make</code>的时候就可以获取到正确的路径。</p>
 <p>除了在Entity结构中（即小括号内）的<code>$</code>不会被解析，标准Yaml格式的键都可以使用配置方法。</p>
 <h2 id="page_section_22">构造器</h2>
-<p>构造器是目前支持最复杂也是除<code>$path</code>外最有用的配置方法。构造器方法可以在配置文件中完整拼装出所需要的对象。</p>
+<p>构造器是目前支持最复杂也是除<code>$path</code>外最有用的配置方法。构造器方法可以在配置文件中完整拼装出所需要的对象，并在一定程度上实现类似依赖注入的功能。</p>
 <pre><code class="language-neon">date:
     $constructor:
-        new:  Combi\Core\Utils\DateTime(now)
+        deps:
+            date:   Combi\Core\Utils\DateTime(now)
 </code></pre>
-<p>上面是<code>$constructor</code>方法最简单的使用方法，在这种用法下他和<code>$make</code>非常相似，事实上作用也是相同的。但是当需要在构造时给予更复杂的参数时，构造器的优势就体现出来了：</p>
-<pre><code class="language-neon">handler1:
-    $constructor:
-        new:  Monolog\Handler\RotatingFileHandler(
-            filename, 0, level)
-        parameters:
-            filename:
-                $path:
-                    path:       combi.log
-                    category:   logs
-            level:
-                $constant: Combi\Core\Logger::LEVELS(info)
+<p>上面是<code>$constructor</code>方法最简单的使用方法，在这种用法下他和<code>$make</code>非常相似，事实上作用也是相同的。只是在构造器中创建对象，需要用到其<code>deps</code>参数。</p>
+<p>在<code>deps</code>参数中，可以定义多个键值，即每个值要有一个键名。这个值可以是任意有效值，比如一个简单的字串或数字、数组、通过<code>$make</code>或其他配置方法生成的对象或值等等。</p>
+<p>如果这个值是一个Entity结构，即像上面配置中那样，这代表需要通过构造器来构造这个对象，这时构造器才会真正开始工作。在上面的例子中，最终会创建一个日期对象赋给顶层的date字段。</p>
+<p>当需要在构造时给予更复杂的参数时，构造器的优势就体现出来了：</p>
+<pre><code class="language-neon">handler:
+  $constructor:
+    take:
+      - handler
+    deps:
+      handler:    Monolog\Handler\RotatingFileHandler(filename, maxFiles)
+      filename:
+        $path:
+          path:       slow.log
+          category:   logs
+      maxFiles:   1000
 </code></pre>
-<p>以上代码取自core包中的日志配置部分。与之前的相比，增加了<code>parameters</code>参数。构造器的<code>parameters</code>参数定义了一系列<strong>变量</strong>，在<code>new</code>参数中用Entity结构描述构造参数时，会优先搜索<code>parameters</code>中有没有定义该变量名，如有的话会使用定义变量的值代替。例如在这里<code>filename</code>和<code>level</code>就使用<code>parameters</code>中的定义代替了。</p>
-<p>使用<code>parameters</code>有以下好处：</p>
-<ol>
-<li>可以将构造对象时的重要参数提取出了，统一设置。</li>
-<li>可以充分利用配置方法嵌套的功能实现相对动态的配置，甚至嵌套构造器。</li>
-<li>可以利用配置场景功能，在程序代码中无感知地在不同环境间切换。</li>
-</ol>
-<p>对于一部分需要通过方法而不能在类构造方法中实现的初始化需求，构造器提供了<code>initialize</code>关键字，在创建完对象后会依次调用。在<code>initialize</code>中描述的Entity属性，也会优先查找<code>parameters</code>中的定义变量。</p>
-<pre><code class="language-neon">handler1:
-    $constructor:
-        new:  Monolog\Handler\RotatingFileHandler(
-            filename, 0, level)
-        parameters:
-            filename:
-                $path:
-                    path:       combi.log
-                    category:   logs
-            level:
-                $constant: Combi\Core\Logger::LEVELS(info)
-            formatter:
-              $make:  Monolog\Formatter\JsonFormatter()
-        initialize:
-            - setFormatter(formatter)
+<p>以上代码取自core包中的日志配置部分并稍做修改。在这里，<code>deps</code>参数变成了我个字段，除了<code>handler</code>外，还有<code>filename</code>和<code>maxFiles</code>。当构造器创建Handler对象，接收到Entity中的两个参数时，会优先去<code>deps</code>参数中查找，看有没有定义同名的参数。如果有的话，会使用<code>deps</code>中定义的依赖值替换参数名来构造对象。这里还可以看到<code>filename</code>字段利用了配置方法嵌套的特性，使用了<code>$path</code>方法来构建实际路径。</p>
+<p>假设<code>filename='/tmp/logs/slow.log'</code>，这时在创建handler时等同于执行了：</p>
+<pre><code class="language-php">new \Monolog\Handler\RotatingFileHandler('/tmp/logs/slow.log', 1000)
 </code></pre>
-<p>像上面这样，在<code>parameters</code>中创建了JsonFormatter对象并赋给formatter变量，并在<code>initialize</code>中调用<code>setFormatter()</code>对象时作为参数引用。</p>
-<p>关于构造器方法的详细使用范例，core包中的默认<code>logger.neon</code>配置文件会是很好的参考。</p>
-<h2 id="page_section_23">扩展配置方法</h2>
+<blockquote>
+<p>只有在<code>deps</code>和<code>init</code>参数（下文详述）参数中的Entity属性才会被尝试匹配。如果在<code>deps</code>中不包括该值作为键名的键，则会继续使用原值，所以并不需要把所有参数都定义到<code>deps</code>中。</p>
+</blockquote>
+<blockquote>
+<p>在<code>deps</code>中，相当于建立了一个临时性的容器，容器中声明的对象将只会创建一次并可以在其他对象的构建中被引用。使用构建器结合配置场景，可以为应用更灵活地构建运行框架。</p>
+</blockquote>
+<h3 id="page_take">take参数</h3>
+<p>除了<code>deps</code>外，这里还多出一个常用的可选参数<code>take</code>，他的作用是指定构造器返回<code>deps</code>中的哪些字段。其执行逻辑如下：</p>
+<ul>
+<li>当省略<code>take</code>时，将返回<code>deps</code>中经生成的全部键值。</li>
+<li>当设置<code>take</code>时，只处理<code>take</code>中存在的<code>deps</code>中的键值并返回。</li>
+<li>当<code>take</code>中指定了<code>deps</code>中不存在的字段时，该字段在返回时值为<code>null</code>。</li>
+<li>无论<code>take</code>与<code>deps</code>的设置如何，当最终返回的值只有一条时，直接返回该值；如果是多条数据，以键值的形式返回复合数组。</li>
+<li>当没有任何值返回时，返回空数组。</li>
+</ul>
+<p>因此可以看到，在二个例子中，顶层的date和handler都直接是生成的对象。如果把上面第二个例子的take参数改成下面那样，那返回的就是一个数组了：</p>
+<pre><code class="language-neon">    take:
+      - handler
+      - filename
+</code></pre>
+<blockquote>
+<p><code>$constructor</code>方法可以用在配置文件顶层，但这时<code>take</code>中其必须有多条有效键名，这样才会返回数组。并且顶层的其他字段都将被覆盖。</p>
+</blockquote>
+<h3 id="page_init">init参数</h3>
+<p>对于一些对象来说，仅依靠<code>__construct()</code>方法并不能完全构建我们所要的对象。所以构造器方法还提供了<code>init</code>参数来实现对创建后对象的方法调用：</p>
+<pre><code class="language-php">slow:
+  $constructor:
+    take:
+      - logger
+    deps:
+      logger:     Monolog\Logger(slow)
+      handler:    Monolog\Handler\RotatingFileHandler(handlerFilename, 0, level)
+      handlerFilename:
+        $path:
+          path:       slow.log
+          category:   logs
+      level:
+        $constant: Combi\Core\Logger::LEVELS(info)
+    init:
+      logger:
+        - pushHandler(handler)
+</code></pre>
+<p>上面的代码摘自core包的<code>logger.neon</code>配置文件，其使用了构建器创建了logger和handler这两对象，并通过<code>init</code>参数，指定了logger对象在创建后执行<code>pushhandler()</code>方法。</p>
+<p><code>init</code>中的设置为二级数组，第一级为<code>deps</code>中的对象键名，第二级是一个自然序列数组，表示按顺序执行该对象的哪些方法，每个单元值为一个Entity结构。与<code>deps</code>中相同，其Entity的括号内属性名会由<code>deps</code>中的同名键值（如果存在）替换。</p>
+<blockquote>
+<p>关于构造器方法的更多使用范例，core包中的默认<code>logger.neon</code>配置文件，以及之后介绍的frame相关配置会是很好的参考。</p>
+</blockquote>
+<h2 id="page_section_25">扩展配置方法</h2>
 <p>要扩展自己的配置方法，遵循以下步骤：</p>
 <ol>
 <li>创建配置方法类，需要继承于<code>Combi\Core\Config\Method</code>。</li>
 <li>将类所在命名空间注册进<code>Combi\Core\Config</code>中。</li>
 <li>在配置中使用。</li>
 </ol>
-<h3 id="page_section_24">创建配置方法类</h3>
+<h3 id="page_section_26">创建配置方法类</h3>
 <p>这里假设创建一个名为<code>$switchCase</code>的配置方法，这个方法可以接收一个参数，默认情况下将其转为首字母大写。也可以接收多个参数，指定转为全大写或全小写。</p>
 <pre><code class="language-php">namespace App\Config\Methods;
 
@@ -461,7 +522,7 @@ class SwitchCase extends Core\Config\Method
 <p>比如在上文中所述的App包中的<code>bootstrap.php</code>末尾加入：</p>
 <pre><code class="language-php">\Combi\Core\Config::appendMethodSpaces('App\\Config\\Methods');
 </code></pre>
-<h3 id="page_section_26">在配置中使用</h3>
+<h3 id="page_section_28">在配置中使用</h3>
 <pre><code class="language-neon">ucwords:
     $switchCase:    show me the money.  # ucwords='Show Me The Money.'
 
@@ -483,6 +544,7 @@ upper:
 <li>在invoke方法中，<code>$this-&gt;getValue()</code>将获取直接定义，单数组/字典结构的配置值，如上述用例中的第一种情况。</li>
 <li>类似上述后二种情况，<code>$this-&gt;getValue()</code>将返回<code>null</code>，而字典中的键值会被赋入对象的属性。</li>
 <li>只有在配置中列出的键值会被赋值进对象属性，所以可以为定义的属性设置默认值。</li>
+<li>对于允许应用在配置根节点（类似<code>$deps</code>方法）的配置方法，<code>_invoke</code>中的返回值必须是一个复合数组。</li>
 </ul>
 <h1 id="page_Core">Core包基础配置</h1>
 <p>当前Core包拥有以下配置：</p>
