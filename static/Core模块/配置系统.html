@@ -417,8 +417,7 @@ prod &lt; user:
 <p>当需要在构造时给予更复杂的参数时，构造器的优势就体现出来了：</p>
 <pre><code class="language-neon">handler:
   $constructor:
-    take:
-      - handler
+    take: handler
     deps:
       handler:    Monolog\Handler\RotatingFileHandler(filename, maxFiles)
       filename:
@@ -438,18 +437,28 @@ prod &lt; user:
 <p>在<code>deps</code>中，相当于建立了一个临时性的容器，容器中声明的对象将只会创建一次并可以在其他对象的构建中被引用。使用构建器结合配置场景，可以为应用更灵活地构建运行框架。</p>
 </blockquote>
 <h3 id="page_take">take参数</h3>
-<p>除了<code>deps</code>外，这里还多出一个常用的可选参数<code>take</code>，他的作用是指定构造器返回<code>deps</code>中的哪些字段。其执行逻辑如下：</p>
+<p>除了<code>deps</code>外，这里还多出一个常用的可选参数<code>take</code>，他的作用是指定构造器返回<code>deps</code>中的哪些字段。<code>take</code>可以是一个对应<code>deps</code>中某个键的字串；也可以是一个数组，指定多个<code>deps</code>中的键。</p>
+<p>其执行逻辑如下：</p>
 <ul>
-<li>当省略<code>take</code>时，将返回<code>deps</code>中经生成的全部键值。</li>
-<li>当设置<code>take</code>时，只处理<code>take</code>中存在的<code>deps</code>中的键值并返回。</li>
+<li>当省略<code>take</code>时，将进入<code>自动模式</code>。
+<ul>
+<li>在自动模式下，将返回<code>deps</code>中生成的全部键值。</li>
+<li>如果<code>deps</code>中有多个键值，将返回一个对应的生成好对象的复合数组。</li>
+<li>如果<code>deps</code>中只有一个键，将直接返回这个键的值。</li>
+</ul>
+</li>
+<li>当设置<code>take</code>时，只处理<code>take</code>中存在的<code>deps</code>中的键值并返回。
+<ul>
+<li>当<code>take</code>被设置为一个字串，指定一个<code>deps</code>中的单一键时，将直接返回这个键的值。</li>
+<li>当<code>take</code>被设置为一个数组时，无论数组中有一个或多个键，都将以复合数组形式返回。</li>
 <li>当<code>take</code>中指定了<code>deps</code>中不存在的字段时，该字段在返回时值为<code>null</code>。</li>
-<li>无论<code>take</code>与<code>deps</code>的设置如何，当最终返回的值只有一条时，直接返回该值；如果是多条数据，以键值的形式返回复合数组。</li>
+</ul>
+</li>
 <li>当没有任何值返回时，返回空数组。</li>
 </ul>
-<p>因此可以看到，在二个例子中，顶层的date和handler都直接是生成的对象。如果把上面第二个例子的take参数改成下面那样，那返回的就是一个数组了：</p>
+<p>因此可以看到，在上面二个例子中，顶层的date和handler都直接是生成的对象。如果把上面第二个例子的take参数改成下面那样，那返回的就是一个数组了：</p>
 <pre><code class="language-neon">    take:
       - handler
-      - filename
 </code></pre>
 <blockquote>
 <p><code>$constructor</code>方法可以用在配置文件顶层，但这时<code>take</code>中其必须有多条有效键名，这样才会返回数组。并且顶层的其他字段都将被覆盖。</p>
